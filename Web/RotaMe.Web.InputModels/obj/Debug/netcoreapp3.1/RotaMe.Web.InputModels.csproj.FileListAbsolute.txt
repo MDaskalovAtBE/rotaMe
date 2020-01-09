@@ -1,0 +1,8 @@
+D:\Projects\RotaMe\Web\RotaMe.Web.InputModels\bin\Debug\netcoreapp3.1\RotaMe.Web.InputModels.deps.json
+D:\Projects\RotaMe\Web\RotaMe.Web.InputModels\bin\Debug\netcoreapp3.1\RotaMe.Web.InputModels.dll
+D:\Projects\RotaMe\Web\RotaMe.Web.InputModels\bin\Debug\netcoreapp3.1\RotaMe.Web.InputModels.pdb
+D:\Projects\RotaMe\Web\RotaMe.Web.InputModels\obj\Debug\netcoreapp3.1\RotaMe.Web.InputModels.csprojAssemblyReference.cache
+D:\Projects\RotaMe\Web\RotaMe.Web.InputModels\obj\Debug\netcoreapp3.1\RotaMe.Web.InputModels.AssemblyInfoInputs.cache
+D:\Projects\RotaMe\Web\RotaMe.Web.InputModels\obj\Debug\netcoreapp3.1\RotaMe.Web.InputModels.AssemblyInfo.cs
+D:\Projects\RotaMe\Web\RotaMe.Web.InputModels\obj\Debug\netcoreapp3.1\RotaMe.Web.InputModels.dll
+D:\Projects\RotaMe\Web\RotaMe.Web.InputModels\obj\Debug\netcoreapp3.1\RotaMe.Web.InputModels.pdb
