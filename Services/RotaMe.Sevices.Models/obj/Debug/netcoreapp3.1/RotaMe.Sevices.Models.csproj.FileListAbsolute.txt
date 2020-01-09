@@ -1,0 +1,13 @@
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\bin\Debug\netcoreapp3.1\RotaMe.Sevices.Models.deps.json
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\bin\Debug\netcoreapp3.1\RotaMe.Sevices.Models.dll
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\bin\Debug\netcoreapp3.1\RotaMe.Sevices.Models.pdb
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\bin\Debug\netcoreapp3.1\RotaMe.Data.Models.dll
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\bin\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.dll
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\bin\Debug\netcoreapp3.1\RotaMe.Data.Models.pdb
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\bin\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.pdb
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Models.csprojAssemblyReference.cache
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Models.AssemblyInfoInputs.cache
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Models.AssemblyInfo.cs
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Models.csproj.CopyComplete
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Models.dll
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Models.pdb

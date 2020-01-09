@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "RotaMe.Web.ViewModels/1.0.0": {
+        "runtime": {
+          "RotaMe.Web.ViewModels.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RotaMe.Web.ViewModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

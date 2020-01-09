@@ -1,0 +1,11 @@
+D:\Projects\RotaMe\Data\RotaMe.Data\bin\Debug\netcoreapp3.1\RotaMe.Data.deps.json
+D:\Projects\RotaMe\Data\RotaMe.Data\bin\Debug\netcoreapp3.1\RotaMe.Data.dll
+D:\Projects\RotaMe\Data\RotaMe.Data\bin\Debug\netcoreapp3.1\RotaMe.Data.pdb
+D:\Projects\RotaMe\Data\RotaMe.Data\obj\Debug\netcoreapp3.1\RotaMe.Data.AssemblyInfoInputs.cache
+D:\Projects\RotaMe\Data\RotaMe.Data\obj\Debug\netcoreapp3.1\RotaMe.Data.AssemblyInfo.cs
+D:\Projects\RotaMe\Data\RotaMe.Data\obj\Debug\netcoreapp3.1\RotaMe.Data.dll
+D:\Projects\RotaMe\Data\RotaMe.Data\obj\Debug\netcoreapp3.1\RotaMe.Data.pdb
+D:\Projects\RotaMe\Data\RotaMe.Data\bin\Debug\netcoreapp3.1\RotaMe.Data.Models.dll
+D:\Projects\RotaMe\Data\RotaMe.Data\bin\Debug\netcoreapp3.1\RotaMe.Data.Models.pdb
+D:\Projects\RotaMe\Data\RotaMe.Data\obj\Debug\netcoreapp3.1\RotaMe.Data.csprojAssemblyReference.cache
+D:\Projects\RotaMe\Data\RotaMe.Data\obj\Debug\netcoreapp3.1\RotaMe.Data.csproj.CopyComplete

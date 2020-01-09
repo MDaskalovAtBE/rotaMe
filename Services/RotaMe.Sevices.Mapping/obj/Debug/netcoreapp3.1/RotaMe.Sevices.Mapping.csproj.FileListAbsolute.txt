@@ -1,0 +1,8 @@
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Mapping\bin\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.deps.json
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Mapping\bin\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.dll
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Mapping\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.AssemblyInfoInputs.cache
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Mapping\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.AssemblyInfo.cs
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Mapping\bin\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.pdb
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Mapping\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.csprojAssemblyReference.cache
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Mapping\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.dll
+D:\Projects\RotaMe\Services\RotaMe.Sevices.Mapping\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.pdb

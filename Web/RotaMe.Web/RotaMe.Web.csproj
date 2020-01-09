@@ -1,0 +1,202 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-RotaMe.Web-3196FEA1-41E8-49F2-980E-915EC6C6BD62</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\css\plugins\icons.svg" />
+    <None Include="wwwroot\assets\fonts\cryptocoins.woff2" />
+    <None Include="wwwroot\assets\fonts\fa-brands-400.svg" />
+    <None Include="wwwroot\assets\fonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\assets\fonts\fa-regular-400.svg" />
+    <None Include="wwwroot\assets\fonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\assets\fonts\fa-solid-900.svg" />
+    <None Include="wwwroot\assets\fonts\fa-solid-900.woff2" />
+    <None Include="wwwroot\assets\fonts\feather.svg" />
+    <None Include="wwwroot\assets\fonts\opensans\mem5YaGs126MiZpBA-UNirkOUehpOqc.woff2" />
+    <None Include="wwwroot\assets\fonts\opensans\mem5YaGs126MiZpBA-UNirkOVuhpOqc.woff2" />
+    <None Include="wwwroot\assets\fonts\opensans\mem5YaGs126MiZpBA-UNirkOX-hpOqc.woff2" />
+    <None Include="wwwroot\assets\fonts\opensans\mem5YaGs126MiZpBA-UNirkOXehpOqc.woff2" />
+    <None Include="wwwroot\assets\fonts\opensans\mem5YaGs126MiZpBA-UNirkOXOhpOqc.woff2" />
+    <None Include="wwwroot\assets\fonts\opensans\mem5YaGs126MiZpBA-UNirkOXuhpOqc.woff2" />
+    <None Include="wwwroot\assets\fonts\opensans\mem8YaGs126MiZpBA-UFUZ0bbck.woff2" />
+    <None Include="wwwroot\assets\fonts\opensans\mem8YaGs126MiZpBA-UFVp0bbck.woff2" />
+    <None Include="wwwroot\assets\fonts\opensans\mem8YaGs126MiZpBA-UFVZ0b.woff2" />
+    <None Include="wwwroot\assets\fonts\opensans\mem8YaGs126MiZpBA-UFW50bbck.woff2" />
+    <None Include="wwwroot\assets\fonts\opensans\mem8YaGs126MiZpBA-UFWJ0bbck.woff2" />
+    <None Include="wwwroot\assets\fonts\opensans\mem8YaGs126MiZpBA-UFWp0bbck.woff2" />
+    <None Include="wwwroot\assets\fonts\opensans\mem8YaGs126MiZpBA-UFWZ0bbck.woff2" />
+    <None Include="wwwroot\assets\fonts\pct.svg" />
+    <None Include="wwwroot\assets\images\cd-arrow.svg" />
+    <None Include="wwwroot\assets\images\hover-effect\triangle.svg" />
+    <None Include="wwwroot\assets\images\hover-effect\triangle2.svg" />
+    <None Include="wwwroot\assets\images\maintance\sark.svg" />
+    <None Include="wwwroot\assets\images\maintance\ship.svg" />
+    <None Include="wwwroot\assets\images\model\welcome.svg" />
+    <None Include="wwwroot\assets\images\pages\baseball.svg" />
+    <None Include="wwwroot\assets\images\pages\coupon.svg" />
+    <None Include="wwwroot\assets\images\pages\coupon1.svg" />
+    <None Include="wwwroot\assets\images\pages\discount.svg" />
+    <None Include="wwwroot\assets\images\pages\festival.svg" />
+    <None Include="wwwroot\assets\images\pages\gift-card.svg" />
+    <None Include="wwwroot\assets\images\pages\interview.svg" />
+    <None Include="wwwroot\assets\images\pages\medal-bronze.svg" />
+    <None Include="wwwroot\assets\images\pages\medal-gold.svg" />
+    <None Include="wwwroot\assets\images\pages\medal-platinum.svg" />
+    <None Include="wwwroot\assets\images\pages\medal-silver.svg" />
+    <None Include="wwwroot\assets\images\pages\medal-trial.svg" />
+    <None Include="wwwroot\assets\images\pages\voucher.svg" />
+    <None Include="wwwroot\assets\json\file-upload.php" />
+    <None Include="wwwroot\assets\js\analytics.js" />
+    <None Include="wwwroot\assets\js\analytics.min.js" />
+    <None Include="wwwroot\assets\js\horizontal-menu.js" />
+    <None Include="wwwroot\assets\js\menu-setting.js" />
+    <None Include="wwwroot\assets\js\menu-setting.min.js" />
+    <None Include="wwwroot\assets\js\pages\ac-alert.js" />
+    <None Include="wwwroot\assets\js\pages\ac-datepicker.js" />
+    <None Include="wwwroot\assets\js\pages\ac-lightbox.js" />
+    <None Include="wwwroot\assets\js\pages\ac-notification.js" />
+    <None Include="wwwroot\assets\js\pages\ac-rangeslider.js" />
+    <None Include="wwwroot\assets\js\pages\ac-rating.js" />
+    <None Include="wwwroot\assets\js\pages\chart-apex.js" />
+    <None Include="wwwroot\assets\js\pages\chart-chart-custom.js" />
+    <None Include="wwwroot\assets\js\pages\chart-highchart-custom.js" />
+    <None Include="wwwroot\assets\js\pages\chart-morris-custom.js" />
+    <None Include="wwwroot\assets\js\pages\chart-peity-custom.js" />
+    <None Include="wwwroot\assets\js\pages\chart.js" />
+    <None Include="wwwroot\assets\js\pages\dashboard-analytics.js" />
+    <None Include="wwwroot\assets\js\pages\dashboard-crm.js" />
+    <None Include="wwwroot\assets\js\pages\dashboard-help.js" />
+    <None Include="wwwroot\assets\js\pages\dashboard-main.js" />
+    <None Include="wwwroot\assets\js\pages\dashboard-project.js" />
+    <None Include="wwwroot\assets\js\pages\dashboard-sale.js" />
+    <None Include="wwwroot\assets\js\pages\data-advance-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-api-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-autofill-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-basic-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-buttons-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-column-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-export-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-header-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-key-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-plugin-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-reorder-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-responsive-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-row-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-scroller-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-select-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-source-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-styling-custom.js" />
+    <None Include="wwwroot\assets\js\pages\data-table-custom.js" />
+    <None Include="wwwroot\assets\js\pages\editable-custom.js" />
+    <None Include="wwwroot\assets\js\pages\form-advance-custom.js" />
+    <None Include="wwwroot\assets\js\pages\form-masking-custom.js" />
+    <None Include="wwwroot\assets\js\pages\form-picker-custom.js" />
+    <None Include="wwwroot\assets\js\pages\form-select-custom.js" />
+    <None Include="wwwroot\assets\js\pages\form-validation.js" />
+    <None Include="wwwroot\assets\js\pages\google-maps.js" />
+    <None Include="wwwroot\assets\js\pages\invoice-list.js" />
+    <None Include="wwwroot\assets\js\pages\jquery.knob-custom.min.js" />
+    <None Include="wwwroot\assets\js\pages\jquery.wavify.js" />
+    <None Include="wwwroot\assets\js\pages\map-api.js" />
+    <None Include="wwwroot\assets\js\pages\notify-event.js" />
+    <None Include="wwwroot\assets\js\pages\page-croper.js" />
+    <None Include="wwwroot\assets\js\pages\task-board.js" />
+    <None Include="wwwroot\assets\js\pages\todo.js" />
+    <None Include="wwwroot\assets\js\pages\TweenMax.min.js" />
+    <None Include="wwwroot\assets\js\pages\widget-data.js" />
+    <None Include="wwwroot\assets\js\pcoded.js" />
+    <None Include="wwwroot\assets\js\pcoded.min.js" />
+    <None Include="wwwroot\assets\js\plugins\apexcharts.min.js" />
+    <None Include="wwwroot\assets\js\plugins\bootstrap-maxlength.js" />
+    <None Include="wwwroot\assets\js\plugins\bootstrap-notify.min.js" />
+    <None Include="wwwroot\assets\js\plugins\bootstrap-slider.min.js" />
+    <None Include="wwwroot\assets\js\plugins\bootstrap-tagsinput.min.js" />
+    <None Include="wwwroot\assets\js\plugins\bootstrap.min.js" />
+    <None Include="wwwroot\assets\js\plugins\buttons.bootstrap4.min.js" />
+    <None Include="wwwroot\assets\js\plugins\buttons.colVis.min.js" />
+    <None Include="wwwroot\assets\js\plugins\buttons.html5.min.js" />
+    <None Include="wwwroot\assets\js\plugins\buttons.print.min.js" />
+    <None Include="wwwroot\assets\js\plugins\Chart.min.js" />
+    <None Include="wwwroot\assets\js\plugins\ckeditor.js" />
+    <None Include="wwwroot\assets\js\plugins\clipboard.min.js" />
+    <None Include="wwwroot\assets\js\plugins\cropper.min.js" />
+    <None Include="wwwroot\assets\js\plugins\dataTables.bootstrap4.min.js" />
+    <None Include="wwwroot\assets\js\plugins\dataTables.buttons.min.js" />
+    <None Include="wwwroot\assets\js\plugins\dataTables.colReorder.min.js" />
+    <None Include="wwwroot\assets\js\plugins\dataTables.fixedColumns.min.js" />
+    <None Include="wwwroot\assets\js\plugins\dataTables.fixedHeader.min.js" />
+    <None Include="wwwroot\assets\js\plugins\dataTables.keyTable.min.js" />
+    <None Include="wwwroot\assets\js\plugins\dataTables.responsive.min.js" />
+    <None Include="wwwroot\assets\js\plugins\dataTables.select.min.js" />
+    <None Include="wwwroot\assets\js\plugins\daterangepicker.js" />
+    <None Include="wwwroot\assets\js\plugins\dropzone-amd-module.min.js" />
+    <None Include="wwwroot\assets\js\plugins\ekko-lightbox.min.js" />
+    <None Include="wwwroot\assets\js\plugins\flipclock.min.js" />
+    <None Include="wwwroot\assets\js\plugins\fullcalendar.min.js" />
+    <None Include="wwwroot\assets\js\plugins\gmaps.min.js" />
+    <None Include="wwwroot\assets\js\plugins\highcharts-3d.js" />
+    <None Include="wwwroot\assets\js\plugins\highcharts.js" />
+    <None Include="wwwroot\assets\js\plugins\isotope.pkgd.min.js" />
+    <None Include="wwwroot\assets\js\plugins\jquery-ui.min.js" />
+    <None Include="wwwroot\assets\js\plugins\jquery.barrating.min.js" />
+    <None Include="wwwroot\assets\js\plugins\jquery.bootstrap.wizard.min.js" />
+    <None Include="wwwroot\assets\js\plugins\jquery.dataTables.min.js" />
+    <None Include="wwwroot\assets\js\plugins\jquery.knob.min.js" />
+    <None Include="wwwroot\assets\js\plugins\jquery.mask.min.js" />
+    <None Include="wwwroot\assets\js\plugins\jquery.minicolors.min.js" />
+    <None Include="wwwroot\assets\js\plugins\jquery.peity.min.js" />
+    <None Include="wwwroot\assets\js\plugins\jquery.validate.min.js" />
+    <None Include="wwwroot\assets\js\plugins\jszip.min.js" />
+    <None Include="wwwroot\assets\js\plugins\lightbox.min.js" />
+    <None Include="wwwroot\assets\js\plugins\moment.js" />
+    <None Include="wwwroot\assets\js\plugins\moment.min.js" />
+    <None Include="wwwroot\assets\js\plugins\pdfmake.min.js" />
+    <None Include="wwwroot\assets\js\plugins\perfect-scrollbar.min.js" />
+    <None Include="wwwroot\assets\js\plugins\PNotify.js" />
+    <None Include="wwwroot\assets\js\plugins\PNotifyButtons.js" />
+    <None Include="wwwroot\assets\js\plugins\PNotifyCallbacks.js" />
+    <None Include="wwwroot\assets\js\plugins\PNotifyConfirm.js" />
+    <None Include="wwwroot\assets\js\plugins\PNotifyDesktop.js" />
+    <None Include="wwwroot\assets\js\plugins\prism.js" />
+    <None Include="wwwroot\assets\js\plugins\select.bootstrap4.min.js" />
+    <None Include="wwwroot\assets\js\plugins\select2.full.min.js" />
+    <None Include="wwwroot\assets\js\plugins\sweetalert.min.js" />
+    <None Include="wwwroot\assets\js\plugins\trumbowyg.min.js" />
+    <None Include="wwwroot\assets\js\ripple.js" />
+    <None Include="wwwroot\assets\js\uikit.js" />
+    <None Include="wwwroot\assets\js\uikit.min.js" />
+    <None Include="wwwroot\assets\js\vendor-all.js" />
+    <None Include="wwwroot\assets\js\vendor-all.min.js" />
+    <None Include="wwwroot\assets\js\waves.min.js" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
+    <PackageReference Include="Sendgrid" Version="9.12.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\RotaMe.Data\RotaMe.Data.csproj" />
+    <ProjectReference Include="..\..\Services\RotaMe.Services\RotaMe.Services.csproj" />
+    <ProjectReference Include="..\..\Services\RotaMe.Sevices.Mapping\RotaMe.Sevices.Mapping.csproj" />
+    <ProjectReference Include="..\RotaMe.Web.ViewModels\RotaMe.Web.ViewModels.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
+</Project>
