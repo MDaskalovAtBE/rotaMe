@@ -1,0 +1,510 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Projects\\RotaMe\\Web\\RotaMe.Web\\RotaMe.Web.csproj": {}
+  },
+  "projects": {
+    "D:\\Projects\\RotaMe\\Data\\RotaMe.Data.Models\\RotaMe.Data.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\RotaMe\\Data\\RotaMe.Data.Models\\RotaMe.Data.Models.csproj",
+        "projectName": "RotaMe.Data.Models",
+        "projectPath": "D:\\Projects\\RotaMe\\Data\\RotaMe.Data.Models\\RotaMe.Data.Models.csproj",
+        "packagesPath": "C:\\Users\\ivand\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\RotaMe\\Data\\RotaMe.Data.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ivand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\RotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\RotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj",
+        "projectName": "RotaMe.Data",
+        "projectPath": "D:\\Projects\\RotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj",
+        "packagesPath": "C:\\Users\\ivand\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\RotaMe\\Data\\RotaMe.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ivand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\Projects\\RotaMe\\Data\\RotaMe.Data.Models\\RotaMe.Data.Models.csproj": {
+                "projectPath": "D:\\Projects\\RotaMe\\Data\\RotaMe.Data.Models\\RotaMe.Data.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\RotaMe\\Services\\RotaMe.Services\\RotaMe.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\RotaMe\\Services\\RotaMe.Services\\RotaMe.Services.csproj",
+        "projectName": "RotaMe.Services",
+        "projectPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Services\\RotaMe.Services.csproj",
+        "packagesPath": "C:\\Users\\ivand\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ivand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\Projects\\RotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj": {
+                "projectPath": "D:\\Projects\\RotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj"
+              },
+              "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Models\\RotaMe.Sevices.Models.csproj": {
+                "projectPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Models\\RotaMe.Sevices.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Sendgrid": {
+              "target": "Package",
+              "version": "[9.12.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj",
+        "projectName": "RotaMe.Sevices.Mapping",
+        "projectPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj",
+        "packagesPath": "C:\\Users\\ivand\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ivand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Models\\RotaMe.Sevices.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Models\\RotaMe.Sevices.Models.csproj",
+        "projectName": "RotaMe.Sevices.Models",
+        "projectPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Models\\RotaMe.Sevices.Models.csproj",
+        "packagesPath": "C:\\Users\\ivand\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ivand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\Projects\\RotaMe\\Data\\RotaMe.Data.Models\\RotaMe.Data.Models.csproj": {
+                "projectPath": "D:\\Projects\\RotaMe\\Data\\RotaMe.Data.Models\\RotaMe.Data.Models.csproj"
+              },
+              "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj": {
+                "projectPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.ViewModels\\RotaMe.Web.ViewModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.ViewModels\\RotaMe.Web.ViewModels.csproj",
+        "projectName": "RotaMe.Web.ViewModels",
+        "projectPath": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.ViewModels\\RotaMe.Web.ViewModels.csproj",
+        "packagesPath": "C:\\Users\\ivand\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.ViewModels\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ivand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj": {
+                "projectPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj"
+              },
+              "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Models\\RotaMe.Sevices.Models.csproj": {
+                "projectPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Models\\RotaMe.Sevices.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\RotaMe\\Web\\RotaMe.Web\\RotaMe.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web\\RotaMe.Web.csproj",
+        "projectName": "RotaMe.Web",
+        "projectPath": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web\\RotaMe.Web.csproj",
+        "packagesPath": "C:\\Users\\ivand\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ivand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\Projects\\RotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj": {
+                "projectPath": "D:\\Projects\\RotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj"
+              },
+              "D:\\Projects\\RotaMe\\Services\\RotaMe.Services\\RotaMe.Services.csproj": {
+                "projectPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Services\\RotaMe.Services.csproj"
+              },
+              "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj": {
+                "projectPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj"
+              },
+              "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.ViewModels\\RotaMe.Web.ViewModels.csproj": {
+                "projectPath": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.ViewModels\\RotaMe.Web.ViewModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.Extensions.Logging.Debug": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Sendgrid": {
+              "target": "Package",
+              "version": "[9.12.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
