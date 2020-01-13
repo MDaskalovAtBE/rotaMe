@@ -2336,6 +2336,10 @@
         }
       },
       "RotaMe.Web.ViewModels/1.0.0": {
+        "dependencies": {
+          "RotaMe.Sevices.Mapping": "1.0.0",
+          "RotaMe.Sevices.Models": "1.0.0"
+        },
         "runtime": {
           "RotaMe.Web.ViewModels.dll": {}
         },

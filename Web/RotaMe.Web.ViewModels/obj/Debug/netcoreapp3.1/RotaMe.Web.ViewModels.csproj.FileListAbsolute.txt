@@ -6,3 +6,10 @@ D:\Projects\RotaMe\Web\RotaMe.Web.ViewModels\obj\Debug\netcoreapp3.1\RotaMe.Web.
 D:\Projects\RotaMe\Web\RotaMe.Web.ViewModels\obj\Debug\netcoreapp3.1\RotaMe.Web.ViewModels.AssemblyInfo.cs
 D:\Projects\RotaMe\Web\RotaMe.Web.ViewModels\obj\Debug\netcoreapp3.1\RotaMe.Web.ViewModels.dll
 D:\Projects\RotaMe\Web\RotaMe.Web.ViewModels\obj\Debug\netcoreapp3.1\RotaMe.Web.ViewModels.pdb
+D:\Projects\RotaMe\Web\RotaMe.Web.ViewModels\bin\Debug\netcoreapp3.1\RotaMe.Data.Models.dll
+D:\Projects\RotaMe\Web\RotaMe.Web.ViewModels\bin\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.dll
+D:\Projects\RotaMe\Web\RotaMe.Web.ViewModels\bin\Debug\netcoreapp3.1\RotaMe.Sevices.Models.dll
+D:\Projects\RotaMe\Web\RotaMe.Web.ViewModels\bin\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.pdb
+D:\Projects\RotaMe\Web\RotaMe.Web.ViewModels\bin\Debug\netcoreapp3.1\RotaMe.Sevices.Models.pdb
+D:\Projects\RotaMe\Web\RotaMe.Web.ViewModels\bin\Debug\netcoreapp3.1\RotaMe.Data.Models.pdb
+D:\Projects\RotaMe\Web\RotaMe.Web.ViewModels\obj\Debug\netcoreapp3.1\RotaMe.Web.ViewModels.csproj.CopyComplete

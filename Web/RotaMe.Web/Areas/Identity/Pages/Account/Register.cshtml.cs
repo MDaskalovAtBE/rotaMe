@@ -12,8 +12,12 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using RotaMe.Data.Models;
+using RotaMe.Services.Contracts;
+using RotaMe.Web.ViewModels.Identity.Register;
+using RotaMe.Services.Mapping;
 
 namespace RotaMe.Web.Areas.Identity.Pages.Account
 {
@@ -24,17 +28,24 @@ namespace RotaMe.Web.Areas.Identity.Pages.Account
         private readonly UserManager<RotaMeUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IRegisterService _registerService;
+
+        private readonly string _maleProfilePicture = "https://res.cloudinary.com/rotame/image/upload/v1578736049/profile-pictures/male-profile-picture_kaausb.png";
+        private readonly string _femaleProfilePicture = "https://res.cloudinary.com/rotame/image/upload/v1578735954/profile-pictures/female-profile-picture_okn8ca.png";
+
 
         public RegisterModel(
             UserManager<RotaMeUser> userManager,
             SignInManager<RotaMeUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IRegisterService registerService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _registerService = registerService;
         }
 
         [BindProperty]
@@ -67,6 +78,10 @@ namespace RotaMe.Web.Areas.Identity.Pages.Account
             public string LastName { get; set; }
 
             [Required]
+            [Display(Name = "Gender")]
+            public string Gender { get; set; }
+
+            [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
@@ -81,10 +96,10 @@ namespace RotaMe.Web.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
-            if (this.User.Identity.IsAuthenticated)
-            {
-                RedirectToPage("/");
-            }
+            var allGenders = this._registerService.GetAllGenders();
+
+            this.ViewData["genders"] = await allGenders.To<RegisterGenderViewModel>().ToListAsync();
+
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
@@ -96,12 +111,17 @@ namespace RotaMe.Web.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var isRoot = !_userManager.Users.Any();
+                var gender = _registerService.GetGender(Input.Gender);
+                var avatar = (Input.Gender == "Male") ? _maleProfilePicture : _femaleProfilePicture;
+
                 var user = new RotaMeUser 
                 { 
                     UserName = Input.UserName, 
                     Email = Input.Email,
                     FirstName = Input.FirstName,
-                    LastName = Input.LastName
+                    LastName = Input.LastName,
+                    Gender = gender,
+                    Avatar = avatar
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
@@ -144,6 +164,9 @@ namespace RotaMe.Web.Areas.Identity.Pages.Account
             }
 
             // If we got this far, something failed, redisplay form
+            var allGenders = this._registerService.GetAllGenders();
+
+            this.ViewData["genders"] = await allGenders.To<RegisterGenderViewModel>().ToListAsync();
             return Page();
         }
     }

@@ -32,6 +32,18 @@ namespace RotaMe.Web.Common
             },
         };
 
+        private static readonly Gender[] genders =
+        {
+            new Gender
+            {
+                Name = "Male"
+            },
+            new Gender
+            {
+                Name = "Female"
+            }
+        };
+
         public static void SeedDatabase(
             this IApplicationBuilder app)
         {
@@ -44,6 +56,7 @@ namespace RotaMe.Web.Common
                     if (!context.Roles.Any())
                     {
                         context.Roles.AddRange(roles);
+                        context.Genders.AddRange(genders);
                         context.SaveChanges();
                     }
                 }
