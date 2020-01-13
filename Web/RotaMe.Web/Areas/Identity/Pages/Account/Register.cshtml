@@ -1,4 +1,5 @@
 ﻿@page
+@using RotaMe.Web.ViewModels.Identity.Register
 @model RegisterModel
 @{
     ViewData["Title"] = "Register";
@@ -80,6 +81,17 @@
                             <label class="floating-label" asp-for="Input.ConfirmPassword">ConfirmPassword</label>
                             <input class="form-control" asp-for="Input.ConfirmPassword">
                             <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="label" asp-for="Input.Gender">Gender</label>
+                            <select class="form-control" id="gender" asp-for="Input.Gender">
+                                <option disabled>--- Select Gender ---</option>
+                                @foreach (var gender in (IEnumerable<RegisterGenderViewModel>)this.ViewData["genders"])
+                                {
+                                    <option value="@gender.Name">@gender.Name</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Input.Gender" class="text-danger"></span>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block mb-4">Register</button>
                     </form>

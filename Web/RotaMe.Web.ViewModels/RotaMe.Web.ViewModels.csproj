@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Services\RotaMe.Sevices.Mapping\RotaMe.Sevices.Mapping.csproj" />
+    <ProjectReference Include="..\..\Services\RotaMe.Sevices.Models\RotaMe.Sevices.Models.csproj" />
+  </ItemGroup>
+
 </Project>

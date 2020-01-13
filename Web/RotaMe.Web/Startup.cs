@@ -19,6 +19,9 @@ using RotaMe.Web.Common;
 using RotaMe.Services.Mapping;
 using RotaMe.Services;
 using RotaMe.Services.Contracts;
+using RotaMe.Sevices.Models;
+using System.Reflection;
+using RotaMe.Web.ViewModels.Administration.Users;
 
 namespace RotaMe.Web
 {
@@ -40,7 +43,8 @@ namespace RotaMe.Web
             //options => options.SignIn.RequireConfirmedAccount = true in constructor
             services.AddIdentity<RotaMeUser, IdentityRole>()
                 .AddEntityFrameworkStores<RotaMeDbContext>()
-                .AddDefaultTokenProviders();
+                .AddDefaultTokenProviders()
+                .AddClaimsPrincipalFactory<MyUserClaimsPrincipalFactory>();
 
 
             services.AddControllersWithViews();
@@ -62,6 +66,7 @@ namespace RotaMe.Web
             });
 
             services.AddTransient<IUsersService, UsersService>();
+            services.AddTransient<IRegisterService, RegisterService>();
 
             services.AddSingleton<IEmailSender, SendGridEmailSender>();
             services.Configure<SendGridOptions>(Configuration.GetSection("EmailSettings"));
@@ -70,6 +75,11 @@ namespace RotaMe.Web
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            AutoMapperConfig.RegisterMappings(
+                typeof(ListUserServiceModel).GetTypeInfo().Assembly,
+                typeof(UsersListViewModel).GetTypeInfo().Assembly);
+            
+
             app.SeedDatabase();
 
             if (env.IsDevelopment())

@@ -5,62 +5,108 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>List</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Gender)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastLoggedIn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Avatar)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastLoggedIn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Avatar)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
+@section Styles{
+    <link rel="stylesheet" href="~/assets/css/plugins/dataTables.bootstrap4.min.css">
 }
-    </tbody>
-</table>
+
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5>User List</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">user</a></li>
+                            <li class="breadcrumb-item"><a href="#!">User list</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card user-profile-list">
+                    <div class="card-body">
+                        <div class="dt-responsive table-responsive">
+                            <table id="user-list-table" class="table nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Gender</th>
+                                        <th>Age</th>
+                                        <th>Last Logged In</th>
+                                        <th>Roles</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var user in Model.OrderByDescending(u => u.Roles.Count))
+                                    {
+                                    <tr>
+                                        <td>
+                                            <div class="d-inline-block align-middle">
+                                                <img src="@user.Avatar" alt="user image" class="img-radius align-top m-r-15" style="width:40px;">
+                                                <div class="d-inline-block">
+                                                    <h6 class="m-b-0">@user.FirstName @user.LastName</h6>
+                                                    <p class="m-b-0">@user.Email</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>@user.GenderName</td>
+                                        <td>61</td>
+                                        <td>@user.LastLoggedIn.ToString("MM/dd/yyyy HH:mm")</td>
+                                        <td>@String.Join(", ", user.Roles)</td>
+                                        <td>
+                                            @if (user.LockoutEnabled)
+                                            {
+                                                <span class="badge badge-light-success">Active</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-light-danger">Locked</span>
+                                            }
+                                        <div class="overlay-edit">
+                                            <button type="button" class="btn btn-icon btn-success"><i class="feather icon-check-circle"></i></button>
+                                            <a href="/admin/users/details/@user.Id" class="btn btn-icon btn-info"><i class="fas fa-info-circle"></i></a>
+                                            <button type="button" class="btn btn-icon btn-danger"><i class="feather icon-trash-2"></i></button>
+                                        </div>
+                                        </td>
+                                    </tr>
+                                    }
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Gender</th>
+                                        <th>Age</th>
+                                        <th>Last Logged In</th>
+                                        <th>Roles</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/assets/js/plugins/jquery.dataTables.min.js"></script>
+    <script src="~/assets/js/plugins/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        $('#user-list-table').DataTable();
+    </script>
+}
