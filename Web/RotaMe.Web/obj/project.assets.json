@@ -15,6 +15,18 @@
           "lib/netstandard2.0/AutoMapper.dll": {}
         }
       },
+      "CloudinaryDotNet/1.9.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/CloudinaryDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/CloudinaryDotNet.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authentication/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -221,16 +233,17 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Http.Extensions.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Http.Features/2.2.0": {
+      "Microsoft.AspNetCore.Http.Features/3.1.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "2.2.0"
+          "Microsoft.Extensions.Primitives": "3.1.0",
+          "System.IO.Pipelines": "4.7.0"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {}
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Http.Features.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {}
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Http.Features.dll": {}
         }
       },
       "Microsoft.AspNetCore.Identity/2.2.0": {
@@ -1921,6 +1934,15 @@
           "lib/netstandard1.3/System.IO.FileSystem.Primitives.dll": {}
         }
       },
+      "System.IO.Pipelines/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/System.IO.Pipelines.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.IO.Pipelines.dll": {}
+        }
+      },
       "System.Linq/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2973,6 +2995,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "CloudinaryDotNet": "1.9.1",
           "Microsoft.AspNetCore.Identity.UI": "3.1.0",
           "RotaMe.Data": "1.0.0",
           "RotaMe.Sevices.Models": "1.0.0",
@@ -3015,6 +3038,19 @@
           "bin/placeholder/RotaMe.Sevices.Models.dll": {}
         }
       },
+      "RotaMe.Web.InputModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "3.1.0"
+        },
+        "compile": {
+          "bin/placeholder/RotaMe.Web.InputModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RotaMe.Web.InputModels.dll": {}
+        }
+      },
       "RotaMe.Web.ViewModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -3047,6 +3083,28 @@
         "lib/netstandard2.0/AutoMapper.dll",
         "lib/netstandard2.0/AutoMapper.pdb",
         "lib/netstandard2.0/AutoMapper.xml"
+      ]
+    },
+    "CloudinaryDotNet/1.9.1": {
+      "sha512": "E5nJnmmBiKcbnhNhjWai5STm+8lOgSwlbCiHJ10IOnFN4dkIyhi8IyswT5bESEPo2dDG7Jt/0JESoQVUPz4lIg==",
+      "type": "package",
+      "path": "cloudinarydotnet/1.9.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cloudinarydotnet.1.9.1.nupkg.sha512",
+        "cloudinarydotnet.nuspec",
+        "lib/net45/CloudinaryDotNet.dll",
+        "lib/net45/CloudinaryDotNet.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/System.Runtime.InteropServices.RuntimeInformation.dll",
+        "lib/net45/System.Text.Encodings.Web.dll",
+        "lib/netcore/CloudinaryDotNet.deps.json",
+        "lib/netcore/CloudinaryDotNet.dll",
+        "lib/netcore/CloudinaryDotNet.xml",
+        "lib/netstandard1.3/CloudinaryDotNet.deps.json",
+        "lib/netstandard1.3/CloudinaryDotNet.dll",
+        "lib/netstandard1.3/CloudinaryDotNet.xml"
       ]
     },
     "Microsoft.AspNetCore.Authentication/2.2.0": {
@@ -3249,16 +3307,19 @@
         "microsoft.aspnetcore.http.extensions.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Http.Features/2.2.0": {
-      "sha512": "ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
+    "Microsoft.AspNetCore.Http.Features/3.1.0": {
+      "sha512": "MzNJ2HbB4i5cIDlH5d62uUpHTPlmbjvAo2tx0x+wYRKJyFoRpxkNvFSB/eCCV/vf4K2+zhKkGC5uNyKvXgvaow==",
       "type": "package",
-      "path": "microsoft.aspnetcore.http.features/2.2.0",
+      "path": "microsoft.aspnetcore.http.features/3.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Http.Features.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.xml",
-        "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.http.features.3.1.0.nupkg.sha512",
         "microsoft.aspnetcore.http.features.nuspec"
       ]
     },
@@ -6504,6 +6565,29 @@
         "system.io.filesystem.primitives.nuspec"
       ]
     },
+    "System.IO.Pipelines/4.7.0": {
+      "sha512": "S0L7oyWyQdVzD+5xIvcC8h44Vc+FY+qXDCLRh2+YsuBDORNphcxNX+tXR6ByLMjQ/7jDaXxsYBF6qbAr7ZIaFw==",
+      "type": "package",
+      "path": "system.io.pipelines/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp3.0/System.IO.Pipelines.dll",
+        "lib/netcoreapp3.0/System.IO.Pipelines.xml",
+        "lib/netstandard1.3/System.IO.Pipelines.dll",
+        "lib/netstandard1.3/System.IO.Pipelines.xml",
+        "lib/netstandard2.0/System.IO.Pipelines.dll",
+        "lib/netstandard2.0/System.IO.Pipelines.xml",
+        "ref/netcoreapp2.0/System.IO.Pipelines.dll",
+        "ref/netcoreapp2.0/System.IO.Pipelines.xml",
+        "system.io.pipelines.4.7.0.nupkg.sha512",
+        "system.io.pipelines.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Linq/4.3.0": {
       "sha512": "5DbqIUpsDp0dFftytzuMmc0oeMdQwjcP/EWxsksIz/w1TcFRkZ3yKKz0PqiYFMmEwPSWw+qNVqD7PJ889JzHbw==",
       "type": "package",
@@ -9377,6 +9461,11 @@
       "path": "../../Services/RotaMe.Sevices.Models/RotaMe.Sevices.Models.csproj",
       "msbuildProject": "../../Services/RotaMe.Sevices.Models/RotaMe.Sevices.Models.csproj"
     },
+    "RotaMe.Web.InputModels/1.0.0": {
+      "type": "project",
+      "path": "../RotaMe.Web.InputModels/RotaMe.Web.InputModels.csproj",
+      "msbuildProject": "../RotaMe.Web.InputModels/RotaMe.Web.InputModels.csproj"
+    },
     "RotaMe.Web.ViewModels/1.0.0": {
       "type": "project",
       "path": "../RotaMe.Web.ViewModels/RotaMe.Web.ViewModels.csproj",
@@ -9395,6 +9484,7 @@
       "RotaMe.Data >= 1.0.0",
       "RotaMe.Services >= 1.0.0",
       "RotaMe.Sevices.Mapping >= 1.0.0",
+      "RotaMe.Web.InputModels >= 1.0.0",
       "RotaMe.Web.ViewModels >= 1.0.0",
       "Sendgrid >= 9.12.0"
     ]
@@ -9406,11 +9496,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\rotaMe\\Web\\RotaMe.Web\\RotaMe.Web.csproj",
+      "projectUniqueName": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web\\RotaMe.Web.csproj",
       "projectName": "RotaMe.Web",
-      "projectPath": "D:\\Projects\\rotaMe\\Web\\RotaMe.Web\\RotaMe.Web.csproj",
+      "projectPath": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web\\RotaMe.Web.csproj",
       "packagesPath": "C:\\Users\\ivand\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\rotaMe\\Web\\RotaMe.Web\\obj\\",
+      "outputPath": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -9430,17 +9520,20 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Projects\\rotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj": {
-              "projectPath": "D:\\Projects\\rotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj"
+            "D:\\Projects\\RotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj": {
+              "projectPath": "D:\\Projects\\RotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj"
             },
-            "D:\\Projects\\rotaMe\\Services\\RotaMe.Services\\RotaMe.Services.csproj": {
-              "projectPath": "D:\\Projects\\rotaMe\\Services\\RotaMe.Services\\RotaMe.Services.csproj"
+            "D:\\Projects\\RotaMe\\Services\\RotaMe.Services\\RotaMe.Services.csproj": {
+              "projectPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Services\\RotaMe.Services.csproj"
             },
-            "D:\\Projects\\rotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj": {
-              "projectPath": "D:\\Projects\\rotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj"
+            "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj": {
+              "projectPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj"
             },
-            "D:\\Projects\\rotaMe\\Web\\RotaMe.Web.ViewModels\\RotaMe.Web.ViewModels.csproj": {
-              "projectPath": "D:\\Projects\\rotaMe\\Web\\RotaMe.Web.ViewModels\\RotaMe.Web.ViewModels.csproj"
+            "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.InputModels\\RotaMe.Web.InputModels.csproj": {
+              "projectPath": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.InputModels\\RotaMe.Web.InputModels.csproj"
+            },
+            "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.ViewModels\\RotaMe.Web.ViewModels.csproj": {
+              "projectPath": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.ViewModels\\RotaMe.Web.ViewModels.csproj"
             }
           }
         }
@@ -9508,5 +9601,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "CloudinaryDotNet 1.9.1 depends on Newtonsoft.Json (>= 12.0.0) but Newtonsoft.Json 12.0.0 was not found. An approximate best match of Newtonsoft.Json 12.0.1 was resolved.",
+      "libraryId": "Newtonsoft.Json",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

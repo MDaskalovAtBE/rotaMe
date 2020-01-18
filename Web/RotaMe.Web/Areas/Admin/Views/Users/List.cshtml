@@ -49,36 +49,36 @@
                                 <tbody>
                                     @foreach (var user in Model.OrderByDescending(u => u.Roles.Count))
                                     {
-                                    <tr>
-                                        <td>
-                                            <div class="d-inline-block align-middle">
-                                                <img src="@user.Avatar" alt="user image" class="img-radius align-top m-r-15" style="width:40px;">
-                                                <div class="d-inline-block">
-                                                    <h6 class="m-b-0">@user.FirstName @user.LastName</h6>
-                                                    <p class="m-b-0">@user.Email</p>
+                                        <tr>
+                                            <td>
+                                                <div class="d-inline-block align-middle">
+                                                    <img src="@user.Avatar" alt="user image" class="img-radius align-top m-r-15" style="width:40px;">
+                                                    <div class="d-inline-block">
+                                                        <h6 class="m-b-0">@user.FirstName @user.LastName</h6>
+                                                        <p class="m-b-0">@user.Email</p>
+                                                    </div>
                                                 </div>
+                                            </td>
+                                            <td>@user.GenderName</td>
+                                            <td>61</td>
+                                            <td>@user.LastLoggedIn.ToString("MM/dd/yyyy HH:mm")</td>
+                                            <td>@String.Join(", ", user.Roles)</td>
+                                            <td>
+                                                @if (user.LockoutEnabled)
+                                                {
+                                                    <span class="badge badge-light-success">Active</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge badge-light-danger">Locked</span>
+                                                }
+                                            <div class="overlay-edit">
+                                                <button type="button" class="btn btn-icon btn-success"><i class="feather icon-check-circle"></i></button>
+                                                <a href="/admin/users/details/@user.Id" class="btn btn-icon btn-info"><i class="fas fa-info-circle"></i></a>
+                                                <button type="button" class="btn btn-icon btn-danger sweet-multiple"><i class="feather icon-trash-2"></i></button>
                                             </div>
-                                        </td>
-                                        <td>@user.GenderName</td>
-                                        <td>61</td>
-                                        <td>@user.LastLoggedIn.ToString("MM/dd/yyyy HH:mm")</td>
-                                        <td>@String.Join(", ", user.Roles)</td>
-                                        <td>
-                                            @if (user.LockoutEnabled)
-                                            {
-                                                <span class="badge badge-light-success">Active</span>
-                                            }
-                                            else
-                                            {
-                                                <span class="badge badge-light-danger">Locked</span>
-                                            }
-                                        <div class="overlay-edit">
-                                            <button type="button" class="btn btn-icon btn-success"><i class="feather icon-check-circle"></i></button>
-                                            <a href="/admin/users/details/@user.Id" class="btn btn-icon btn-info"><i class="fas fa-info-circle"></i></a>
-                                            <button type="button" class="btn btn-icon btn-danger"><i class="feather icon-trash-2"></i></button>
-                                        </div>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
                                     }
 
                                 </tbody>
@@ -105,6 +105,8 @@
 @section Scripts{
     <script src="~/assets/js/plugins/jquery.dataTables.min.js"></script>
     <script src="~/assets/js/plugins/dataTables.bootstrap4.min.js"></script>
+    <script src="~/assets/js/plugins/sweetalert.min.js"></script>
+    <script src="~/assets/js/pages/ac-alert.js"></script>
 
     <script>
         $('#user-list-table').DataTable();

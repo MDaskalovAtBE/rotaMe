@@ -34,6 +34,7 @@
           "RotaMe.Data": "1.0.0",
           "RotaMe.Services": "1.0.0",
           "RotaMe.Sevices.Mapping": "1.0.0",
+          "RotaMe.Web.InputModels": "1.0.0",
           "RotaMe.Web.ViewModels": "1.0.0",
           "Sendgrid": "9.12.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -213,7 +214,7 @@
           "System.IO.FileSystem.Watcher": "4.1.2.0",
           "System.IO.IsolatedStorage": "4.1.2.0",
           "System.IO.MemoryMappedFiles": "4.1.2.0",
-          "System.IO.Pipelines": "4.0.2.0",
+          "System.IO.Pipelines.Reference": "4.0.2.0",
           "System.IO.Pipes": "4.1.2.0",
           "System.IO.UnmanagedMemoryStream": "4.1.2.0",
           "System.Linq.Reference": "4.2.2.0",
@@ -341,6 +342,20 @@
           "lib/netstandard2.0/AutoMapper.dll": {}
         }
       },
+      "CloudinaryDotNet/1.9.1": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "lib/netstandard1.3/CloudinaryDotNet.dll": {
+            "assemblyVersion": "1.9.1.0",
+            "fileVersion": "1.9.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/CloudinaryDotNet.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authentication/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.Core": "2.2.0",
@@ -414,7 +429,7 @@
       },
       "Microsoft.AspNetCore.Hosting.Server.Abstractions/2.2.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "Microsoft.AspNetCore.Http.Features": "3.1.0",
           "Microsoft.Extensions.Configuration.Abstractions": "3.1.0"
         }
       },
@@ -434,7 +449,7 @@
       },
       "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "Microsoft.AspNetCore.Http.Features": "3.1.0",
           "System.Text.Encodings.Web": "4.5.0"
         }
       },
@@ -446,9 +461,10 @@
           "System.Buffers": "4.5.0"
         }
       },
-      "Microsoft.AspNetCore.Http.Features/2.2.0": {
+      "Microsoft.AspNetCore.Http.Features/3.1.0": {
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "3.1.0"
+          "Microsoft.Extensions.Primitives": "3.1.0",
+          "System.IO.Pipelines": "4.7.0"
         }
       },
       "Microsoft.AspNetCore.Identity/2.2.0": {
@@ -1681,6 +1697,7 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "System.IO.Pipelines/4.7.0": {},
       "System.Linq/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -2300,6 +2317,7 @@
       },
       "RotaMe.Services/1.0.0": {
         "dependencies": {
+          "CloudinaryDotNet": "1.9.1",
           "Microsoft.AspNetCore.Identity.UI": "3.1.0",
           "RotaMe.Data": "1.0.0",
           "RotaMe.Sevices.Models": "1.0.0",
@@ -2333,6 +2351,17 @@
         },
         "compile": {
           "RotaMe.Sevices.Models.dll": {}
+        }
+      },
+      "RotaMe.Web.InputModels/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "3.1.0"
+        },
+        "runtime": {
+          "RotaMe.Web.InputModels.dll": {}
+        },
+        "compile": {
+          "RotaMe.Web.InputModels.dll": {}
         }
       },
       "RotaMe.Web.ViewModels/1.0.0": {
@@ -3409,7 +3438,7 @@
         },
         "compileOnly": true
       },
-      "System.IO.Pipelines/4.0.2.0": {
+      "System.IO.Pipelines.Reference/4.0.2.0": {
         "compile": {
           "System.IO.Pipelines.dll": {}
         },
@@ -4054,6 +4083,13 @@
       "path": "automapper/9.0.0",
       "hashPath": "automapper.9.0.0.nupkg.sha512"
     },
+    "CloudinaryDotNet/1.9.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-E5nJnmmBiKcbnhNhjWai5STm+8lOgSwlbCiHJ10IOnFN4dkIyhi8IyswT5bESEPo2dDG7Jt/0JESoQVUPz4lIg==",
+      "path": "cloudinarydotnet/1.9.1",
+      "hashPath": "cloudinarydotnet.1.9.1.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Authentication/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -4159,12 +4195,12 @@
       "path": "microsoft.aspnetcore.http.extensions/2.2.0",
       "hashPath": "microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Http.Features/2.2.0": {
+    "Microsoft.AspNetCore.Http.Features/3.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
-      "path": "microsoft.aspnetcore.http.features/2.2.0",
-      "hashPath": "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512"
+      "sha512": "sha512-MzNJ2HbB4i5cIDlH5d62uUpHTPlmbjvAo2tx0x+wYRKJyFoRpxkNvFSB/eCCV/vf4K2+zhKkGC5uNyKvXgvaow==",
+      "path": "microsoft.aspnetcore.http.features/3.1.0",
+      "hashPath": "microsoft.aspnetcore.http.features.3.1.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Identity/2.2.0": {
       "type": "package",
@@ -4950,6 +4986,13 @@
       "path": "system.io.filesystem.primitives/4.3.0",
       "hashPath": "system.io.filesystem.primitives.4.3.0.nupkg.sha512"
     },
+    "System.IO.Pipelines/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-S0L7oyWyQdVzD+5xIvcC8h44Vc+FY+qXDCLRh2+YsuBDORNphcxNX+tXR6ByLMjQ/7jDaXxsYBF6qbAr7ZIaFw==",
+      "path": "system.io.pipelines/4.7.0",
+      "hashPath": "system.io.pipelines.4.7.0.nupkg.sha512"
+    },
     "System.Linq/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -5363,6 +5406,11 @@
       "sha512": ""
     },
     "RotaMe.Sevices.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RotaMe.Web.InputModels/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -6257,7 +6305,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.IO.Pipelines/4.0.2.0": {
+    "System.IO.Pipelines.Reference/4.0.2.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

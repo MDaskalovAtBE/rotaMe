@@ -22,6 +22,7 @@ using RotaMe.Services.Contracts;
 using RotaMe.Sevices.Models;
 using System.Reflection;
 using RotaMe.Web.ViewModels.Administration.Users;
+using CloudinaryDotNet;
 
 namespace RotaMe.Web
 {
@@ -51,6 +52,15 @@ namespace RotaMe.Web
             services.AddRazorPages();
             services.AddMvc(option => option.EnableEndpointRouting = false);
 
+            Account cloudinaryCredentials = new Account(
+                this.Configuration["Cloudinary:CloudName"],
+                this.Configuration["Cloudinary:ApiKey"],
+                this.Configuration["Cloudinary:ApiSecret"]);
+
+            Cloudinary cloudinaryUtility = new Cloudinary(cloudinaryCredentials);
+
+            services.AddSingleton(cloudinaryUtility);
+
             //Password settings for easy work
             services.Configure<IdentityOptions>(options =>
             {
@@ -67,6 +77,7 @@ namespace RotaMe.Web
 
             services.AddTransient<IUsersService, UsersService>();
             services.AddTransient<IRegisterService, RegisterService>();
+            services.AddTransient<ICloudinaryService, CloudinaryService>();
 
             services.AddSingleton<IEmailSender, SendGridEmailSender>();
             services.Configure<SendGridOptions>(Configuration.GetSection("EmailSettings"));
