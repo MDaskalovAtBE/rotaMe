@@ -161,3 +161,7 @@ D:\Projects\RotaMe\Web\RotaMe.Web\bin\Debug\netcoreapp3.1\RotaMe.Web.ViewModels.
 D:\Projects\RotaMe\Web\RotaMe.Web\bin\Debug\netcoreapp3.1\RotaMe.Web.ViewModels.pdb
 D:\Projects\RotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Users\List.cshtml.g.cs
 D:\Projects\RotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Users\Details.cshtml.g.cs
+D:\Projects\RotaMe\Web\RotaMe.Web\bin\Debug\netcoreapp3.1\RotaMe.Web.InputModels.dll
+D:\Projects\RotaMe\Web\RotaMe.Web\bin\Debug\netcoreapp3.1\RotaMe.Web.InputModels.pdb
+D:\Projects\RotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Users\Create.cshtml.g.cs
+D:\Projects\RotaMe\Web\RotaMe.Web\bin\Debug\netcoreapp3.1\CloudinaryDotNet.dll

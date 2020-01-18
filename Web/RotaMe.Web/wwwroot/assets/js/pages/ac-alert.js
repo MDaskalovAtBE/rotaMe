@@ -21,21 +21,21 @@ $(document).ready(function() {
         swal("Good job!", "You clicked the button!", "info");
     });
     // [ sweet-multiple ]
-    $('.sweet-multiple').on('click', function() {
+    $('.sweet-multiple').on('click', function () {
         swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this imaginary file!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this user!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Poof! Your imaginary file has been deleted!", {
+                    swal("Poof! The user has been deleted!", {
                         icon: "success",
                     });
                 } else {
-                    swal("Your imaginary file is safe!", {
+                    swal("The user hasn't been deleted!", {
                         icon: "error",
                     });
                 }

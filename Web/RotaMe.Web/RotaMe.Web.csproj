@@ -190,6 +190,7 @@
     <ProjectReference Include="..\..\Data\RotaMe.Data\RotaMe.Data.csproj" />
     <ProjectReference Include="..\..\Services\RotaMe.Services\RotaMe.Services.csproj" />
     <ProjectReference Include="..\..\Services\RotaMe.Sevices.Mapping\RotaMe.Sevices.Mapping.csproj" />
+    <ProjectReference Include="..\RotaMe.Web.InputModels\RotaMe.Web.InputModels.csproj" />
     <ProjectReference Include="..\RotaMe.Web.ViewModels\RotaMe.Web.ViewModels.csproj" />
   </ItemGroup>
 
