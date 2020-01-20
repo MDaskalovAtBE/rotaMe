@@ -130,5 +130,16 @@ namespace RotaMe.Web.Areas.Admin.Controllers
 
             return this.Redirect("/admin/users/list");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var user = await userManager.FindByIdAsync(id);
+
+            var isUserDeleted = await userManager.DeleteAsync(user);
+
+            return this.StatusCode(200);
+        }
+
     }
 }
