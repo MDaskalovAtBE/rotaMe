@@ -800,11 +800,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj",
+      "projectUniqueName": "D:\\Projects\\rotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj",
       "projectName": "RotaMe.Sevices.Mapping",
-      "projectPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj",
+      "projectPath": "D:\\Projects\\rotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj",
       "packagesPath": "C:\\Users\\ivand\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\obj\\",
+      "outputPath": "D:\\Projects\\rotaMe\\Services\\RotaMe.Sevices.Mapping\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -855,7 +855,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

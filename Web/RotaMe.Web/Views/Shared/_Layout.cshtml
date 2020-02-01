@@ -62,72 +62,78 @@
                         </div>
                     </div>
                 }
-                <ul class="nav pcoded-inner-navbar">
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Navigation</label>
+            <ul class="nav pcoded-inner-navbar">
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Navigation</label>
+                </li>
+                @if (this.User.Identity.IsAuthenticated && this.User.IsInRole("User"))
+                {
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="index.html">Default</a></li>
+                            <li><a href="dashboard-sale.html">Sales</a></li>
+                            <li><a href="dashboard-crm.html">CRM</a></li>
+                            <li><a href="dashboard-analytics.html">Analytics</a></li>
+                            <li><a href="dashboard-project.html">Project</a></li>
+                        </ul>
                     </li>
-                    @if (this.User.Identity.IsAuthenticated && this.User.IsInRole("User"))
-                    {
-                        <li class="nav-item pcoded-hasmenu">
-                            <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
-                            <ul class="pcoded-submenu">
-                                <li><a href="index.html">Default</a></li>
-                                <li><a href="dashboard-sale.html">Sales</a></li>
-                                <li><a href="dashboard-crm.html">CRM</a></li>
-                                <li><a href="dashboard-analytics.html">Analytics</a></li>
-                                <li><a href="dashboard-project.html">Project</a></li>
-                            </ul>
-                        </li>
 
-                        <li class="nav-item pcoded-hasmenu">
-                            <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">User</span></a>
-                            <ul class="pcoded-submenu">
-                                <li><a href="user-profile.html">Profile</a></li>
-                                <li><a href="user-card.html">User Card</a></li>
-                                <li><a href="user-list.html">User List</a></li>
-                            </ul>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item pcoded-hasmenu">
-                            <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">User</span></a>
-                            <ul class="pcoded-submenu">
-                                <li><a href="/Identity/Account/Login">Login</a></li>
-                                <li><a href="/Identity/Account/Register">Register</a></li>
-                            </ul>
-                        </li>
-                    }
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">User</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="user-profile.html">Profile</a></li>
+                            <li><a href="user-card.html">User Card</a></li>
+                            <li><a href="user-list.html">User List</a></li>
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">User</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="/Identity/Account/Login">Login</a></li>
+                            <li><a href="/Identity/Account/Register">Register</a></li>
+                        </ul>
+                    </li>
+                }
 
 
-                    @if (this.User.Identity.IsAuthenticated && this.User.IsInRole("Admin"))
-                    {
+                @if (this.User.Identity.IsAuthenticated && this.User.IsInRole("Admin"))
+                {
 
-                        <li class="nav-item pcoded-menu-caption">
-                            <label>Admin Panel <span class="pcoded-badge badge badge-danger">NEW</span><span class="pcoded-badge badge badge-warning">HOT</span></label>
-                        </li>
-                        <li class="nav-item pcoded-hasmenu">
-                            <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Users</span></a>
-                            <ul class="pcoded-submenu">
-                                <li><a href="/admin/users/list">All Users</a></li>
-                                <li><a href="/admin/users/create">Create User</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item pcoded-hasmenu">
-                            <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file"></i></span><span class="pcoded-mtext">Projects</span></a>
-                            <ul class="pcoded-submenu">
-                                <li><a href="hospital-dashboard.html">All Projects</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item pcoded-hasmenu">
-                            <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-activity"></i></span><span class="pcoded-mtext">Availabilities</span></a>
-                            <ul class="pcoded-submenu">
-                                <li><a href="hospital-dashboard.html">All Availabilities</a></li>
-                            </ul>
-                        </li>
-                    }
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Admin Panel <span class="pcoded-badge badge badge-danger">NEW</span><span class="pcoded-badge badge badge-warning">HOT</span></label>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Users</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="/admin/users/list">All Users</a></li>
+                            <li><a href="/admin/users/create">Create User</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="fas fa-users-cog"></i></span><span class="pcoded-mtext">Roles</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="/admin/roles/list">All Roles</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file"></i></span><span class="pcoded-mtext">Projects</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="hospital-dashboard.html">All Projects</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-activity"></i></span><span class="pcoded-mtext">Availabilities</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="hospital-dashboard.html">All Availabilities</a></li>
+                        </ul>
+                    </li>
+                }
 
-                </ul>
+            </ul>
                 <div class="card text-center">
                     <div class="card-block">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
