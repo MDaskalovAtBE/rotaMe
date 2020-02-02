@@ -1808,11 +1808,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\RotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj",
+      "projectUniqueName": "D:\\Projects\\rotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj",
       "projectName": "RotaMe.Data",
-      "projectPath": "D:\\Projects\\RotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj",
+      "projectPath": "D:\\Projects\\rotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj",
       "packagesPath": "C:\\Users\\ivand\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\RotaMe\\Data\\RotaMe.Data\\obj\\",
+      "outputPath": "D:\\Projects\\rotaMe\\Data\\RotaMe.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -1832,8 +1832,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Projects\\RotaMe\\Data\\RotaMe.Data.Models\\RotaMe.Data.Models.csproj": {
-              "projectPath": "D:\\Projects\\RotaMe\\Data\\RotaMe.Data.Models\\RotaMe.Data.Models.csproj"
+            "D:\\Projects\\rotaMe\\Data\\RotaMe.Data.Models\\RotaMe.Data.Models.csproj": {
+              "projectPath": "D:\\Projects\\rotaMe\\Data\\RotaMe.Data.Models\\RotaMe.Data.Models.csproj"
             }
           }
         }
@@ -1867,7 +1867,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

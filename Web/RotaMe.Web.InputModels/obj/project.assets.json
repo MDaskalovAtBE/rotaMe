@@ -104,11 +104,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.InputModels\\RotaMe.Web.InputModels.csproj",
+      "projectUniqueName": "D:\\Projects\\rotaMe\\Web\\RotaMe.Web.InputModels\\RotaMe.Web.InputModels.csproj",
       "projectName": "RotaMe.Web.InputModels",
-      "projectPath": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.InputModels\\RotaMe.Web.InputModels.csproj",
+      "projectPath": "D:\\Projects\\rotaMe\\Web\\RotaMe.Web.InputModels\\RotaMe.Web.InputModels.csproj",
       "packagesPath": "C:\\Users\\ivand\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.InputModels\\obj\\",
+      "outputPath": "D:\\Projects\\rotaMe\\Web\\RotaMe.Web.InputModels\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -159,7 +159,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
