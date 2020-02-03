@@ -24,7 +24,16 @@ namespace RotaMe.Web.Areas.Admin.Controllers
             {
                 Id = r.Id,
                 Name = r.Name + "s",
-                UsersCount = r.UsersCount
+                UsersCount = r.UsersCount,
+                Users = r.Users.Select(u => new RoleListUsersViewModel() {
+                    Id = u.Id,
+                    Email = u.Email,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    Avatar = u.Avatar,
+                    LastLoggedIn = u.LastLoggedIn,
+                    LockoutEnabled = u.LockoutEnabled
+                }).ToList()
             }).ToList();
 
             for (int i = 0; i < listRoleViewModel.Count; i++)
