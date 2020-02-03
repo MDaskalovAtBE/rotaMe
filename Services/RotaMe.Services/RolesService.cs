@@ -34,8 +34,19 @@ namespace RotaMe.Services
 
             for (int i = 0; i < listRoleServiceModel.Count(); i++)
             {
-                var userInRole = await userManager.GetUsersInRoleAsync(listRoleServiceModel[i].Name);
-                listRoleServiceModel[i].UsersCount = userInRole.Count();
+                var usersInRole = await userManager.GetUsersInRoleAsync(listRoleServiceModel[i].Name);
+                var listRoleUserServiceModels = usersInRole.Select(u => new ListRoleUserServiceModel() { 
+                    Id = u.Id,
+                    Email = u.Email,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    Avatar = u.Avatar,
+                    LastLoggedIn = u.LastLoggedIn,
+                    LockoutEnabled = u.LockoutEnabled
+                }).ToList();
+
+                listRoleServiceModel[i].Users = listRoleUserServiceModels;
+                listRoleServiceModel[i].UsersCount = usersInRole.Count();
             }
 
             return listRoleServiceModel;

@@ -13,5 +13,7 @@ namespace RotaMe.Sevices.Models
         public string Name { get; set; }
 
         public int UsersCount { get; set; }
+
+        public IList<ListRoleUserServiceModel> Users { get; set; }
     }
 }

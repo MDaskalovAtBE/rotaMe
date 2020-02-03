@@ -13,5 +13,8 @@ namespace RotaMe.Web.ViewModels.Administration.Roles
         public int UsersCount { get; set; }
 
         public string CardIcon { get; set; }
+
+        public IList<RoleListUsersViewModel> Users { get; set; }
+
     }
 }
