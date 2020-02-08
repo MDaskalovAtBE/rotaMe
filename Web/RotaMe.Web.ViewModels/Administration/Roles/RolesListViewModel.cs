@@ -14,6 +14,8 @@ namespace RotaMe.Web.ViewModels.Administration.Roles
 
         public string CardIcon { get; set; }
 
+        public bool DeleteButton { get; set; }
+
         public IList<RoleListUsersViewModel> Users { get; set; }
 
     }
