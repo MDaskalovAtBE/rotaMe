@@ -106,7 +106,6 @@ $(document).ready(function() {
                             });
                         },
                     })
-
                 } else {
                     swal("The role hasn't been deleted!", {
                         icon: "error",

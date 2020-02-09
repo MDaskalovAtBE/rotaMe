@@ -27,7 +27,8 @@ namespace RotaMe.Services
         public async Task<bool> Create(RoleCreateServiceModel roleCreateServiceModel)
         {
             var roles = await this.context.Roles.ToListAsync();
-            if (roles.FirstOrDefault(r => r.NormalizedName == roleCreateServiceModel.NarmalizedName) == null)
+            var role = roles.FirstOrDefault(r => r.NormalizedName == roleCreateServiceModel.NarmalizedName);
+            if (role == null)
             {
                 var result = await context.Roles.AddAsync(new IdentityRole()
                 {
@@ -38,10 +39,9 @@ namespace RotaMe.Services
                 context.SaveChanges();
 
                 return false ? result == null : true;
-            } else
-            {
-                return false;
             }
+
+            return false;
         }
 
         public async Task<bool> Delete(string id)
@@ -52,14 +52,7 @@ namespace RotaMe.Services
 
             context.SaveChanges();
 
-            if (result != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false ? result == null : true;
         }
 
         public async Task<IEnumerable<ListRoleServiceModel>> GetAllRoles()
