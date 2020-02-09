@@ -138,7 +138,12 @@ namespace RotaMe.Web.Areas.Admin.Controllers
 
             var isUserDeleted = await userManager.DeleteAsync(user);
 
-            return this.StatusCode(200);
+            if (isUserDeleted != null)
+            {
+                return this.StatusCode(200);
+            }
+
+            return this.StatusCode(400);
         }
 
     }

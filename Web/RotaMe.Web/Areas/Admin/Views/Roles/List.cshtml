@@ -12,24 +12,8 @@
 <!-- [ Main Content ] start -->
 <div class="pcoded-main-container">
     <div class="pcoded-content">
-        <!-- [ breadcrumb ] start -->
-        <div class="page-header">
-            <div class="page-block">
-                <div class="row align-items-center">
-                    <div class="col-md-12">
-                        <div class="page-header-title">
-                            <h5 class="m-b-10">Roles Dashboard</h5>
-                        </div>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Roles</a></li>
-                            <li class="breadcrumb-item"><a href="#!">Roles List</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- [ breadcrumb ] end -->
+
+        <partial name="~/Views/Shared/_BreadcrumbPartial.cshtml" model='new BreadcrumbPartialViewModel() { Controller = "Roles", Action = "Roles List"}' />
         <!-- [ Main Content ] start -->
         <div class="row">
             <!-- subscribe start -->
@@ -41,6 +25,10 @@
                             <i class="fas @role.CardIcon text-c-blue d-block f-40"></i>
                             <h4 class="m-t-20 m-b-20"><span class="text-c-blue">@role.UsersCount</span> @role.Name</h4>
                             <button class="btn btn-primary btn-sm btn-round modal-report" data-title="Users" data-toggle="modal" data-target="#modal-report-@role.Name.ToLower()">View @role.Name</button>
+                            @if (role.DeleteButton)
+                            {
+                                <a href="/admin/roles/delete/@role.Id" class="btn btn-danger btn-sm btn-round sweet-multiple-delete-role">Delete Role</a>
+                            }
                         </div>
                         <div id="operation-chart"></div>
                     </div>
@@ -65,7 +53,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="table-responsive">
-                        <table id="report-table" class="table table-bordered table-striped mb-0">
+                        <table id="report-table-@role.Name.ToLower()" class="table table-bordered table-striped mb-0">
                             <thead>
                                 <tr>
                                     <th>Image</th>
@@ -112,12 +100,14 @@
     <script src="~/assets/js/plugins/select2.full.min.js"></script>
     <!-- form-select-custom Js -->
     <script src="~/assets/js/pages/form-select-custom.js"></script>
-    <script>
-        // DataTable start
-        $('#report-table').DataTable();
-        // DataTable end
 
-    </script>
-
-
+    @*DataTable start*@
+    @foreach (var role in Model.ToList())
+    {
+        var name = "#report-table-" + role.Name.ToLower();
+        <script>
+            $("@name").DataTable();
+        </script>
+    }
+    @*DataTable end*@
 }

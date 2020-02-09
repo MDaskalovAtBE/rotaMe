@@ -10,5 +10,9 @@ namespace RotaMe.Services.Contracts
     public interface IRolesService
     {
         Task<IEnumerable<ListRoleServiceModel>> GetAllRoles();
+
+        Task<bool> Create(RoleCreateServiceModel roleCreateServiceModel);
+
+        Task<bool> Delete(string id);
     }
 }

@@ -24,6 +24,37 @@ namespace RotaMe.Services
             this.userManager = userManager;
         }
 
+        public async Task<bool> Create(RoleCreateServiceModel roleCreateServiceModel)
+        {
+            var roles = await this.context.Roles.ToListAsync();
+            var role = roles.FirstOrDefault(r => r.NormalizedName == roleCreateServiceModel.NarmalizedName);
+            if (role == null)
+            {
+                var result = await context.Roles.AddAsync(new IdentityRole()
+                {
+                    Name = roleCreateServiceModel.Name,
+                    NormalizedName = roleCreateServiceModel.NarmalizedName
+                });
+
+                context.SaveChanges();
+
+                return false ? result == null : true;
+            }
+
+            return false;
+        }
+
+        public async Task<bool> Delete(string id)
+        {
+            var role = await context.Roles.FindAsync(id);
+
+            var result = context.Roles.Remove(role);
+
+            context.SaveChanges();
+
+            return false ? result == null : true;
+        }
+
         public async Task<IEnumerable<ListRoleServiceModel>> GetAllRoles()
         {
             var users = this.context.Users;
