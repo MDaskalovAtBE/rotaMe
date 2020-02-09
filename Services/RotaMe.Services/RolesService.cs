@@ -55,6 +55,12 @@ namespace RotaMe.Services
             return false ? result == null : true;
         }
 
+        public IQueryable<ListRolesToAssignServiceModel> GetAllRolesToAssign()
+        {
+            var users = this.context.Roles;
+            return users.To<ListRolesToAssignServiceModel>();
+        }
+
         public async Task<IEnumerable<ListRoleServiceModel>> GetAllRoles()
         {
             var users = this.context.Users;
@@ -81,6 +87,14 @@ namespace RotaMe.Services
             }
 
             return listRoleServiceModel;
+        }
+
+        public async Task<bool> AssignRoleToUser(RoleAssignToUserServiceModel roleAssignToUserServiceModel)
+        {
+            var user = await userManager.FindByIdAsync(roleAssignToUserServiceModel.UserId);
+            var result = await userManager.AddToRoleAsync(user, roleAssignToUserServiceModel.RoleName);
+
+            return false ? result == null : true;
         }
     }
 }

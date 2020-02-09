@@ -10,6 +10,9 @@ namespace RotaMe.Services.Contracts
     public interface IRolesService
     {
         Task<IEnumerable<ListRoleServiceModel>> GetAllRoles();
+        Task<bool> AssignRoleToUser(RoleAssignToUserServiceModel roleAssignToUserServiceModel);
+
+        IQueryable<ListRolesToAssignServiceModel> GetAllRolesToAssign();
 
         Task<bool> Create(RoleCreateServiceModel roleCreateServiceModel);
 

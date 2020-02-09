@@ -45,6 +45,12 @@ namespace RotaMe.Services
             return users.To<ListUserServiceModel>();
         }
 
+        public IQueryable<ListUsersToAssignServiceModel> GetAllUsersToAssign()
+        {
+            var users = this.context.Users;
+            return users.To<ListUsersToAssignServiceModel>();
+        }
+
         public async Task<UserDetailsServiceModel> GetUserById(string userId)
         {
             var user = await this.context.Users.To<UserDetailsServiceModel>().SingleOrDefaultAsync(user => user.Id == userId);
