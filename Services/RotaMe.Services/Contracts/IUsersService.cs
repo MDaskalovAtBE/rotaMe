@@ -11,6 +11,8 @@ namespace RotaMe.Services.Contracts
     {
         IQueryable<ListUserServiceModel> GetAllUsers();
 
+        IQueryable<ListUsersToAssignServiceModel> GetAllUsersToAssign();
+
         Task<UserDetailsServiceModel> GetUserById(string id);
 
         Task<bool> Create(UserCreateServiceModel userCreateServiceModel);
