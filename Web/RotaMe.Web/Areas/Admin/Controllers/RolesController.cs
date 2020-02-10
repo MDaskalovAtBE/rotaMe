@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using RotaMe.Services.Contracts;
 using RotaMe.Services.Mapping;
 using RotaMe.Sevices.Models;
+using RotaMe.Sevices.Models.Administration.Roles;
 using RotaMe.Web.InputModels.Administration.Roles;
 using RotaMe.Web.ViewModels.Administration.Roles;
 using RotaMe.Web.ViewModels.Administration.Users;
@@ -65,6 +67,23 @@ namespace RotaMe.Web.Areas.Admin.Controllers
             return this.View();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Unassign()
+        {
+            var users = await usersService.GetAllUsersToUnassign();
+
+            var usersListToUnassignViewModel = users.ToList().Select(u => new UsersListToUnassignViewModel()
+            {
+                Id = u.Id,
+                Username = u.Username,
+                Roles = JsonConvert.SerializeObject(u.Roles)
+            });
+
+            this.ViewData["users"] = usersListToUnassignViewModel;
+
+            return this.View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> Assign(RoleAssignToUserInputModel roleAssignToUserInputModel)
         {
@@ -80,6 +99,30 @@ namespace RotaMe.Web.Areas.Admin.Controllers
             };
 
             var result = await rolesService.AssignRoleToUser(roleAssignTotUserServiceModel);
+
+            if (!result)
+            {
+                return this.View();
+            }
+
+            return this.Redirect("/admin/roles/list");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Unassign(RoleUnassignFromUserInputModel roleUnassignFromUserInputModel)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View();
+            }
+
+            var roleUnassignFromUserServiceModel = new RoleUnassignFromUserServiceModel()
+            {
+                UserId = roleUnassignFromUserInputModel.UserId,
+                RoleName = roleUnassignFromUserInputModel.RoleName
+            };
+
+            var result = await rolesService.UnassignRoleFromUser(roleUnassignFromUserServiceModel);
 
             if (!result)
             {

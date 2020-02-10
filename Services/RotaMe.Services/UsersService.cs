@@ -7,6 +7,8 @@ using RotaMe.Data.Models;
 using RotaMe.Services.Contracts;
 using RotaMe.Services.Mapping;
 using RotaMe.Sevices.Models;
+using RotaMe.Sevices.Models.Administration.Roles;
+using RotaMe.Sevices.Models.Administration.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +51,18 @@ namespace RotaMe.Services
         {
             var users = this.context.Users;
             return users.To<ListUsersToAssignServiceModel>();
+        }
+        public async Task<IEnumerable<ListUsersToUnassignServiceModel>> GetAllUsersToUnassign()
+        {
+            var users = this.context.Users;
+            var usersToUnassignServiceModel = await users.To<ListUsersToUnassignServiceModel>().ToListAsync();
+            for (int i = 0; i < usersToUnassignServiceModel.Count(); i++)
+            {
+                var user = await userManager.FindByIdAsync(usersToUnassignServiceModel[i].Id);
+                var userRoles = await userManager.GetRolesAsync(user);
+                usersToUnassignServiceModel[i].Roles = userRoles;
+            }
+            return usersToUnassignServiceModel;
         }
 
         public async Task<UserDetailsServiceModel> GetUserById(string userId)
