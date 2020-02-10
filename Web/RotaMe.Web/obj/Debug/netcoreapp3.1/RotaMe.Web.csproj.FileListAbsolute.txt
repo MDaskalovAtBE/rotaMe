@@ -170,3 +170,4 @@ D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\View
 D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_BreadcrumbPartial.cshtml.g.cs
 D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
 D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Roles\Assign.cshtml.g.cs
+D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Roles\Unassign.cshtml.g.cs

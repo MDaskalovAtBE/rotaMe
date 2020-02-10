@@ -5,6 +5,7 @@ using RotaMe.Data.Models;
 using RotaMe.Services.Contracts;
 using RotaMe.Services.Mapping;
 using RotaMe.Sevices.Models;
+using RotaMe.Sevices.Models.Administration.Roles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -93,6 +94,14 @@ namespace RotaMe.Services
         {
             var user = await userManager.FindByIdAsync(roleAssignToUserServiceModel.UserId);
             var result = await userManager.AddToRoleAsync(user, roleAssignToUserServiceModel.RoleName);
+
+            return false ? result == null : true;
+        }
+
+        public async Task<bool> UnassignRoleFromUser(RoleUnassignFromUserServiceModel roleUnassignFromUserServiceModel)
+        {
+            var user = await userManager.FindByIdAsync(roleUnassignFromUserServiceModel.UserId);
+            var result = await userManager.RemoveFromRoleAsync(user, roleUnassignFromUserServiceModel.RoleName);
 
             return false ? result == null : true;
         }
