@@ -29,6 +29,15 @@ namespace RotaMe.Web.InputModels.Administration.Users
         public string LastName { get; set; }
 
         [Required]
+        [MinLength(3)]
+        [Display(Name = "Phone Number")]
+        public string PhoneNumber { get; set; }
+
+        [Required]
+        [Display(Name = "Birth Day")]
+        public string BirthDay { get; set; }
+
+        [Required]
         [Display(Name = "Gender")]
         public string Gender { get; set; }
 

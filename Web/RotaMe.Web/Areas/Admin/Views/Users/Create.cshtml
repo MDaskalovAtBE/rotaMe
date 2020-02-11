@@ -13,6 +13,7 @@
     <!-- ekko-lightbox css -->
     <link rel="stylesheet" href="~/assets/css/plugins/ekko-lightbox.css">
     <link rel="stylesheet" href="~/assets/css/plugins/lightbox.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/daterangepicker.css">
 }
 
 <!-- [ Main Content ] start -->
@@ -40,6 +41,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label class="form-label" asp-for="UserName"></label>
+                                        <input type="text" class="form-control" placeholder="UserName" asp-for="UserName">
+                                        <span asp-validation-for="UserName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label class="form-label" asp-for="Password"></label>
                                         <input type="password" class="form-control" placeholder="Password" asp-for="Password">
                                         <span asp-validation-for="Password" class="text-danger"></span>
@@ -50,13 +58,6 @@
                                         <label class="form-label" asp-for="ConfirmPassword"></label>
                                         <input type="password" class="form-control" placeholder="ConfirmPassword" asp-for="ConfirmPassword">
                                         <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label" asp-for="UserName"></label>
-                                        <input type="text" class="form-control" placeholder="UserName" asp-for="UserName">
-                                        <span asp-validation-for="UserName" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -75,6 +76,20 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label class="form-label" asp-for="PhoneNumber"></label>
+                                        <input type="text" class="form-control" placeholder="PhoneNumber" asp-for="PhoneNumber">
+                                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" asp-for="BirthDay"></label>
+                                        <input type="text" class="form-control" asp-for="BirthDay">
+                                        <span asp-validation-for="BirthDay" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label class="form-label" asp-for="Gender"></label>
                                         <select class="form-control" asp-for="Gender">
                                             <option disabled>--- Select Gender ---</option>
@@ -88,7 +103,6 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-
                                         <label class="form-label" asp-for="Avatar"></label>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="Avatar" asp-for="Avatar">
@@ -114,5 +128,9 @@
     <script src="~/assets/js/plugins/jquery.validate.min.js"></script>
     <!-- form-picker-custom Js -->
     <script src="~/assets/js/pages/form-validation.js"></script>
+    <!-- datepicker js -->
+    <script src="~/assets/js/plugins/moment.min.js"></script>
+    <script src="~/assets/js/plugins/daterangepicker.js"></script>
+    <script src="~/assets/js/pages/ac-datepicker.js"></script>
 }
 

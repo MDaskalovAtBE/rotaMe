@@ -18,7 +18,7 @@
         // Node / Browserify
         //isomorphic issue
         var jQuery = (typeof window != 'undefined') ? window.jQuery : undefined;
-        if (!jQuery) {
+        if (!jQuery) {birthday
             jQuery = require('jquery');
             if (!jQuery.fn) jQuery.fn = {};
         }

@@ -14,6 +14,11 @@ namespace RotaMe.Sevices.Models
 
         public string LastName { get; set; }
 
+        public string PhoneNumber { get; set; }
+
+        public DateTime BirthDay { get; set; }
+
+
         public string Gender { get; set; }
 
         public string Avatar { get; set; }

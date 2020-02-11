@@ -13,7 +13,11 @@ namespace RotaMe.Sevices.Models
         public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        
+
+        public DateTime BirthDay { get; set; }
+
+        public string PhoneNumber { get; set; }
+
         public UserGenderServiceModel Gender { get; set; }
 
         public bool LockoutEnabled { get; set; }

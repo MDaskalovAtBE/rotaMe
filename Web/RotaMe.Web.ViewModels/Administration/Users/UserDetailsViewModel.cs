@@ -17,6 +17,8 @@ namespace RotaMe.Web.ViewModels.Administration.Users
 
         public string PhoneNumber { get; set; }
 
+        public DateTime BirthDay { get; set; }
+
         public string GenderName { get; set; }
 
         public bool LockoutEnabled { get; set; }

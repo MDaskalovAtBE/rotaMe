@@ -9,3 +9,5 @@ D:\Projects\RotaMe\Data\RotaMe.Data\bin\Debug\netcoreapp3.1\RotaMe.Data.Models.d
 D:\Projects\RotaMe\Data\RotaMe.Data\bin\Debug\netcoreapp3.1\RotaMe.Data.Models.pdb
 D:\Projects\RotaMe\Data\RotaMe.Data\obj\Debug\netcoreapp3.1\RotaMe.Data.csprojAssemblyReference.cache
 D:\Projects\RotaMe\Data\RotaMe.Data\obj\Debug\netcoreapp3.1\RotaMe.Data.csproj.CopyComplete
+D:\Projects\rotaMe\Data\RotaMe.Data\bin\Debug\netcoreapp3.1\RotaMe.Data.runtimeconfig.json
+D:\Projects\rotaMe\Data\RotaMe.Data\bin\Debug\netcoreapp3.1\RotaMe.Data.runtimeconfig.dev.json

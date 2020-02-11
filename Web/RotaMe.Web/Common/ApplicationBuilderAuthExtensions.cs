@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using RotaMe.Data;
 using RotaMe.Data.Models;
@@ -51,7 +52,7 @@ namespace RotaMe.Web.Common
             {
                 using (var context = serviceScope.ServiceProvider.GetRequiredService<RotaMeDbContext>())
                 {
-                    context.Database.EnsureCreated();
+                    context.Database.Migrate();
 
                     if (!context.Roles.Any())
                     {
