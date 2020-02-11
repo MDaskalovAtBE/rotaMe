@@ -21,8 +21,9 @@ namespace RotaMe.Data.Models
         [DataType(DataType.Date)]
         public DateTime LastLoggedIn { get; set; }
 
-        //[Required]
         public string Avatar { get; set; }
+
+        public DateTime BirthDay { get; set; }
 
 
         public ICollection<Project> OwnProjects { get; set; } = new List<Project>();

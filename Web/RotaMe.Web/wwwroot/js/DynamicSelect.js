@@ -4,7 +4,6 @@ $(document).ready(function () {
         var roles = $('.user-unassign-selector').children("option:selected").data('roles');
         var roleSelect = $('.role-unassign-selector');
         roleSelect.empty();
-        console.log(roles.length);
 
         for (var i = 0; i < roles.length; i++) {
             var roleName = roles[i];
@@ -19,7 +18,6 @@ $(document).ready(function () {
         var roles = $('.user-unassign-selector').children("option:selected").data('roles');
         var roleSelect = $('.role-unassign-selector');
         roleSelect.empty();
-        console.log(roles.length);
 
         for (var i = 0; i < roles.length; i++) {
             var roleName = roles[i];

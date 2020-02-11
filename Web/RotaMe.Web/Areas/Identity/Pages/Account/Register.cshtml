@@ -28,6 +28,7 @@
     <!-- Favicon icon -->
     <link rel="icon" href="~/assets/images/favicon.ico" type="image/x-icon">
 
+    <link rel="stylesheet" href="~/assets/css/plugins/daterangepicker.css">
     <!-- vendor css -->
     <link rel="stylesheet" href="~/assets/css/style.css">
 
@@ -50,7 +51,7 @@
             <div class="auth-side-form">
                 <div class=" auth-content">
                     <img src="~/assets/images/auth/auth-logo-dark.png" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
-                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
                         <h4 class="mb-3 f-w-400">Register</h4>
                         <div class="form-group mb-3">
                             <label class="floating-label" asp-for="Input.Email">Email</label>
@@ -73,6 +74,11 @@
                             <span asp-validation-for="Input.LastName" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
+                            <label class="floating-label" asp-for="Input.PhoneNumber">PhoneNumber</label>
+                            <input class="form-control" asp-for="Input.PhoneNumber">
+                            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
                             <label class="floating-label" asp-for="Input.Password">Password</label>
                             <input class="form-control" asp-for="Input.Password">
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
@@ -93,6 +99,17 @@
                             </select>
                             <span asp-validation-for="Input.Gender" class="text-danger"></span>
                         </div>
+                        <div class="form-group mb-3">
+                            <label class="label" asp-for="Input.BirthDay">Birth Day</label>
+                            <input asp-for="Input.BirthDay" class="form-control" />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label" asp-for="Input.Avatar">Chose Avatar</label>
+                            <div class="custom-file">
+                                <input class="custom-file-input" asp-for="Input.Avatar">
+                                <label class="custom-file-label" asp-for="Input.Avatar">Choose Avatar</label>
+                            </div>
+                        </div>
                         <button type="submit" class="btn btn-primary btn-block mb-4">Register</button>
                     </form>
                     <div class="text-center">
@@ -112,6 +129,14 @@
     <script src="~/assets/js/plugins/bootstrap.min.js"></script>
     <script src="~/assets/js/ripple.js"></script>
     <script src="~/assets/js/pcoded.min.js"></script>
+    <!-- datepicker js -->
+    <script src="~/assets/js/plugins/moment.min.js"></script>
+    <script src="~/assets/js/plugins/daterangepicker.js"></script>
+    <script src="~/assets/js/pages/ac-datepicker.js"></script>
+    <!-- jquery-validation Js -->
+    <script src="~/assets/js/plugins/jquery.validate.min.js"></script>
+    <!-- form-picker-custom Js -->
+    <script src="~/assets/js/pages/form-validation.js"></script>
 
     @section Scripts {
         <partial name="_ValidationScriptsPartial" />

@@ -18,6 +18,8 @@ using RotaMe.Data.Models;
 using RotaMe.Services.Contracts;
 using RotaMe.Web.ViewModels.Identity.Register;
 using RotaMe.Services.Mapping;
+using System.Globalization;
+using Microsoft.AspNetCore.Http;
 
 namespace RotaMe.Web.Areas.Identity.Pages.Account
 {
@@ -29,6 +31,7 @@ namespace RotaMe.Web.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly IRegisterService _registerService;
+        private readonly ICloudinaryService cloudinaryService;
 
         private readonly string _maleProfilePicture = "https://res.cloudinary.com/rotame/image/upload/v1578736049/profile-pictures/male-profile-picture_kaausb.png";
         private readonly string _femaleProfilePicture = "https://res.cloudinary.com/rotame/image/upload/v1578735954/profile-pictures/female-profile-picture_okn8ca.png";
@@ -39,13 +42,15 @@ namespace RotaMe.Web.Areas.Identity.Pages.Account
             SignInManager<RotaMeUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            IRegisterService registerService)
+            IRegisterService registerService,
+            ICloudinaryService cloudinaryService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
             _registerService = registerService;
+            this.cloudinaryService = cloudinaryService;
         }
 
         [BindProperty]
@@ -82,6 +87,16 @@ namespace RotaMe.Web.Areas.Identity.Pages.Account
             public string Gender { get; set; }
 
             [Required]
+            [Display(Name = "BirthDay")]
+            public string BirthDay { get; set; }
+
+            [Required]
+            [Display(Name = "Phone Number")]
+            public string PhoneNumber { get; set; }
+
+            public IFormFile Avatar { get; set; }
+
+            [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
@@ -111,17 +126,32 @@ namespace RotaMe.Web.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var isRoot = !_userManager.Users.Any();
-                var gender = _registerService.GetGender(Input.Gender);
-                var avatar = (Input.Gender == "Male") ? _maleProfilePicture : _femaleProfilePicture;
+                var gender = _registerService.GetGender(Input.Gender); 
+                
+                string avatar = null;
 
+                if (Input.Avatar != null)
+                {
+                    avatar = await this.cloudinaryService.UploadPictureAsync(
+                        Input.Avatar,
+                        Input.UserName);
+                }
+
+                if (avatar == null)
+                {
+                    avatar = (Input.Gender == "Male") ? _maleProfilePicture : _femaleProfilePicture;
+                }
+                
                 var user = new RotaMeUser 
                 { 
                     UserName = Input.UserName, 
                     Email = Input.Email,
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
+                    PhoneNumber = Input.PhoneNumber,
+                    BirthDay = DateTime.ParseExact(Input.BirthDay, "MM/dd/yyyy", CultureInfo.InvariantCulture),
                     Gender = gender,
-                    Avatar = avatar
+                    Avatar = avatar,
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
 

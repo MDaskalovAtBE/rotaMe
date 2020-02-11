@@ -17,6 +17,8 @@ namespace RotaMe.Sevices.Models
 
         public string PhoneNumber { get; set; }
 
+        public DateTime BirthDay { get; set; }
+
         public UserGenderServiceModel Gender { get; set; }
 
         public bool LockoutEnabled { get; set; }

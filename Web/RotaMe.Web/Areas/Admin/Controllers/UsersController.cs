@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -63,7 +64,8 @@ namespace RotaMe.Web.Areas.Admin.Controllers
                 GenderName = user.Gender.Name,
                 LastLoggedIn = user.LastLoggedIn,
                 LockoutEnabled = user.LockoutEnabled,
-                PhoneNumber = user.PhoneNumber
+                PhoneNumber = user.PhoneNumber,
+                BirthDay = user.BirthDay
             };
 
             var userFromDb = await userManager.FindByEmailAsync(user.Email);
@@ -120,6 +122,8 @@ namespace RotaMe.Web.Areas.Admin.Controllers
                 LastName = userCreateInputModel.LastName,
                 UserName = userCreateInputModel.UserName,
                 Email = userCreateInputModel.Email,
+                PhoneNumber = userCreateInputModel.PhoneNumber,
+                BirthDay = DateTime.ParseExact(userCreateInputModel.BirthDay, "MM/dd/yyyy", CultureInfo.InvariantCulture),
                 Gender = userCreateInputModel.Gender,
                 Password = userCreateInputModel.Password,
                 Avatar = pictureUrl

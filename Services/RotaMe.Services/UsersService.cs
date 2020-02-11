@@ -88,6 +88,8 @@ namespace RotaMe.Services
                 Email = userCreateServiceModel.Email,
                 FirstName = userCreateServiceModel.FirstName,
                 LastName = userCreateServiceModel.LastName,
+                PhoneNumber = userCreateServiceModel.PhoneNumber,
+                BirthDay = userCreateServiceModel.BirthDay,
                 Gender = gender,
                 Avatar = avatar,
                 

@@ -22,6 +22,7 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
+                                        <th>Phone</th>
                                         <th>Gender</th>
                                         <th>Age</th>
                                         <th>Last Logged In</th>
@@ -32,42 +33,44 @@
                                 <tbody>
                                     @foreach (var user in Model.OrderByDescending(u => u.Roles.Count))
                                     {
-                                        <tr>
-                                            <td>
-                                                <div class="d-inline-block align-middle">
-                                                    <img src="@user.Avatar" alt="user image" class="img-radius align-top m-r-15" style="width:40px;">
-                                                    <div class="d-inline-block">
-                                                        <h6 class="m-b-0">@user.FirstName @user.LastName</h6>
-                                                        <p class="m-b-0">@user.Email</p>
-                                                    </div>
+                                    <tr>
+                                        <td>
+                                            <div class="d-inline-block align-middle">
+                                                <img src="@user.Avatar" alt="user image" class="img-radius align-top m-r-15" style="width:40px;">
+                                                <div class="d-inline-block">
+                                                    <h6 class="m-b-0">@user.FirstName @user.LastName</h6>
+                                                    <p class="m-b-0">@user.Email</p>
                                                 </div>
-                                            </td>
-                                            <td>@user.GenderName</td>
-                                            <td>61</td>
-                                            <td>@user.LastLoggedIn.ToString("MM/dd/yyyy HH:mm")</td>
-                                            <td>@String.Join(", ", user.Roles)</td>
-                                            <td>
-                                                @if (user.LockoutEnabled)
-                                                {
-                                                    <span class="badge badge-light-success">Active</span>
-                                                }
-                                                else
-                                                {
-                                                    <span class="badge badge-light-danger">Locked</span>
-                                                }
-                                                <div class="overlay-edit">
-                                                    <button type="button" class="btn btn-icon btn-success"><i class="feather icon-check-circle"></i></button>
-                                                    <a href="/admin/users/details/@user.Id" class="btn btn-icon btn-info"><i class="fas fa-info-circle"></i></a>
-                                                    <a href="/admin/users/delete/@user.Id" class="btn btn-icon btn-danger sweet-multiple-delete-user"><i class="feather icon-trash-2"></i></a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                            </div>
+                                        </td>
+                                        <td>@user.PhoneNumber</td>
+                                        <td>@user.GenderName</td>
+                                        <td>@user.Age</td>
+                                        <td>@user.LastLoggedIn.ToString("dd/MM/yyyy HH:mm")</td>
+                                        <td>@String.Join(", ", user.Roles)</td>
+                                        <td>
+                                            @if (user.LockoutEnabled)
+                                            {
+                                                <span class="badge badge-light-success">Active</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-light-danger">Locked</span>
+                                            }
+                                            <div class="overlay-edit">
+                                                <button type="button" class="btn btn-icon btn-success"><i class="feather icon-check-circle"></i></button>
+                                                <a href="/admin/users/details/@user.Id" class="btn btn-icon btn-info"><i class="fas fa-info-circle"></i></a>
+                                                <a href="/admin/users/delete/@user.Id" class="btn btn-icon btn-danger sweet-multiple-delete-user"><i class="feather icon-trash-2"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
                                     }
 
                                 </tbody>
                                 <tfoot>
                                     <tr>
                                         <th>Name</th>
+                                        <th>Phone</th>
                                         <th>Gender</th>
                                         <th>Age</th>
                                         <th>Last Logged In</th>
