@@ -10,6 +10,7 @@ using RotaMe.Data.Models;
 using RotaMe.Services.Contracts;
 using RotaMe.Services.Mapping;
 using RotaMe.Sevices.Models;
+using RotaMe.Sevices.Models.Administration.Users;
 using RotaMe.Web.InputModels.Administration.Users;
 using RotaMe.Web.ViewModels.Administration.Users;
 using RotaMe.Web.ViewModels.Identity.Register;
@@ -59,6 +60,7 @@ namespace RotaMe.Web.Areas.Admin.Controllers
                 Email = user.Email,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
+                UserName = user.UserName,
                 Avatar = user.Avatar,
                 EmailConfirmed = user.EmailConfirmed,
                 GenderName = user.Gender.Name,
@@ -72,7 +74,42 @@ namespace RotaMe.Web.Areas.Admin.Controllers
 
             userDetailsViewModel.Roles = await userManager.GetRolesAsync(userFromDb);
 
-            return this.View(userDetailsViewModel);
+            var allGenders = this.registerService.GetAllGenders();
+
+            this.ViewData["genders"] = await allGenders.To<RegisterGenderViewModel>().ToListAsync();
+            this.ViewData["userDetails"] = userDetailsViewModel;
+
+            return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Details(string id, UserEditInputModel userEditInputModel)
+        {
+            string pictureUrl = null;
+
+            if (userEditInputModel.Avatar != null)
+            {
+                pictureUrl = await this.cloudinaryService.UploadPictureAsync(
+                    userEditInputModel.Avatar,
+                    userEditInputModel.UserName);
+            }
+
+            var userEditServiceModel = new UserEditServiceModel()
+            {
+                Id = id,
+                Email = userEditInputModel.Email,
+                FirstName = userEditInputModel.FirstName,
+                LastName = userEditInputModel.LastName,
+                UserName = userEditInputModel.UserName,
+                Avatar = pictureUrl,
+                Gender = userEditInputModel.Gender,
+                PhoneNumber = userEditInputModel.PhoneNumber,
+                BirthDay = userEditInputModel.BirthDay
+            };
+
+            var result = await usersService.Edit(userEditServiceModel);
+
+            return this.RedirectToAction("Details", new { id = id });
         }
 
         [HttpGet]

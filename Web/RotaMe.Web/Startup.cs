@@ -23,6 +23,8 @@ using RotaMe.Sevices.Models;
 using System.Reflection;
 using RotaMe.Web.ViewModels.Administration.Users;
 using CloudinaryDotNet;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace RotaMe.Web
 {
@@ -74,6 +76,8 @@ namespace RotaMe.Web
 
                 options.User.RequireUniqueEmail = true;
             });
+
+            services.ConfigureApplicationCookie(options => options.LoginPath = "/identity/account/login");
 
             services.AddTransient<IUsersService, UsersService>();
             services.AddTransient<IRolesService, RolesService>();

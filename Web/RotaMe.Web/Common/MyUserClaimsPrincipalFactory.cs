@@ -22,6 +22,7 @@ namespace RotaMe.Web.Common
         protected override async Task<ClaimsIdentity> GenerateClaimsAsync(RotaMeUser user)
         {
             var identity = await base.GenerateClaimsAsync(user);
+            identity.AddClaim(new Claim("Id", user.Id));
             identity.AddClaim(new Claim("Avatar", user.Avatar));
             return identity;
         }
