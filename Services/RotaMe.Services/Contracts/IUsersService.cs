@@ -19,6 +19,7 @@ namespace RotaMe.Services.Contracts
         Task<UserDetailsServiceModel> GetUserById(string id);
 
         Task<bool> Create(UserCreateServiceModel userCreateServiceModel);
+        Task<bool> Edit(UserEditServiceModel userEditServiceModel);
 
     }
 }

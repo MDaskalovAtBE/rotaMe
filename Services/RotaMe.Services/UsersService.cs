@@ -11,6 +11,7 @@ using RotaMe.Sevices.Models.Administration.Roles;
 using RotaMe.Sevices.Models.Administration.Users;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -109,6 +110,33 @@ namespace RotaMe.Services
                 //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
             }
+
+            return result.Succeeded;
+        }
+
+        public async Task<bool> Edit(UserEditServiceModel userEditServiceModel)
+        {
+            var user = await userManager.FindByIdAsync(userEditServiceModel.Id);
+
+            if (userEditServiceModel.Email != null)
+            {
+                user.Email = userEditServiceModel.Email;
+                user.PhoneNumber = userEditServiceModel.PhoneNumber;
+            }
+            else if (userEditServiceModel.FirstName != null)
+            {
+                user.FirstName = userEditServiceModel.FirstName;
+                user.LastName = userEditServiceModel.LastName;
+                user.UserName = userEditServiceModel.UserName;
+                user.BirthDay = DateTime.ParseExact(userEditServiceModel.BirthDay, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                user.Gender = registerService.GetGender(userEditServiceModel.Gender);
+            }
+            if (userEditServiceModel.Avatar != null)
+            {
+                user.Avatar = userEditServiceModel.Avatar;
+            }
+
+            var result = await userManager.UpdateAsync(user);
 
             return result.Succeeded;
         }
