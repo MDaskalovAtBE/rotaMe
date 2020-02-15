@@ -16,6 +16,11 @@ namespace RotaMe.Data.Models
         public int EventId { get; set; }
         public Event Event { get; set; }
 
+        [Required]
+        public DateTime StartDate { get; set; }
+
+        [Required]
+        public DateTime EndDate { get; set; }
 
         public bool Assigned { get; set; }
     }

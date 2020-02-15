@@ -160,8 +160,14 @@ namespace RotaMe.Data.Migrations
                     b.Property<bool>("Assigned")
                         .HasColumnType("bit");
 
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("EventId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -183,10 +189,6 @@ namespace RotaMe.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CreatorId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -207,8 +209,6 @@ namespace RotaMe.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CreatorId");
 
                     b.HasIndex("ProjectId");
 
@@ -294,10 +294,8 @@ namespace RotaMe.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OwnerId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("OwnerId1")
+                    b.Property<string>("OwnerId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Slug")
@@ -310,7 +308,7 @@ namespace RotaMe.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OwnerId1");
+                    b.HasIndex("OwnerId");
 
                     b.ToTable("Projects");
                 });
@@ -403,6 +401,21 @@ namespace RotaMe.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("RotaMe.Data.Models.UserEvent", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "EventId");
+
+                    b.HasIndex("EventId");
+
+                    b.ToTable("UserEvent");
+                });
+
             modelBuilder.Entity("RotaMe.Data.Models.UserProject", b =>
                 {
                     b.Property<string>("UserId")
@@ -486,12 +499,6 @@ namespace RotaMe.Data.Migrations
 
             modelBuilder.Entity("RotaMe.Data.Models.Event", b =>
                 {
-                    b.HasOne("RotaMe.Data.Models.RotaMeUser", "Creator")
-                        .WithMany("Events")
-                        .HasForeignKey("CreatorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("RotaMe.Data.Models.Project", "Project")
                         .WithMany("Events")
                         .HasForeignKey("ProjectId")
@@ -519,7 +526,9 @@ namespace RotaMe.Data.Migrations
                 {
                     b.HasOne("RotaMe.Data.Models.RotaMeUser", "Owner")
                         .WithMany("OwnProjects")
-                        .HasForeignKey("OwnerId1");
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("RotaMe.Data.Models.RotaMeUser", b =>
@@ -527,6 +536,21 @@ namespace RotaMe.Data.Migrations
                     b.HasOne("RotaMe.Data.Models.Gender", "Gender")
                         .WithMany()
                         .HasForeignKey("GenderId");
+                });
+
+            modelBuilder.Entity("RotaMe.Data.Models.UserEvent", b =>
+                {
+                    b.HasOne("RotaMe.Data.Models.Event", "Event")
+                        .WithMany("Users")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RotaMe.Data.Models.RotaMeUser", "User")
+                        .WithMany("Events")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("RotaMe.Data.Models.UserProject", b =>

@@ -14,7 +14,7 @@ namespace RotaMe.Data.Models
         public string Slug { get; set; }
 
         [Required]
-        public int OwnerId { get; set; }
+        public string OwnerId { get; set; }
 
         public RotaMeUser Owner { get; set; }
 

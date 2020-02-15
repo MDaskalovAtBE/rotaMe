@@ -190,3 +190,4 @@ D:\Projects\rotaMe\Web\RotaMe.Web\bin\Debug\netcoreapp3.1\Microsoft.Extensions.P
 D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\RotaMe.Web.MvcApplicationPartsAssemblyInfo.cs
 D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\RotaMe.Web.MvcApplicationPartsAssemblyInfo.cache
 D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Views\Profile\Index.cshtml.g.cs
+D:\Projects\RotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\Views\Projects\Create.cshtml.g.cs

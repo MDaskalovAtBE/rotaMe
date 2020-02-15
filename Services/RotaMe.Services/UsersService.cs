@@ -140,5 +140,14 @@ namespace RotaMe.Services
 
             return result.Succeeded;
         }
+
+        public async Task SetLastLoggedIn(string userName, DateTime date)
+        {
+            var user = await userManager.FindByNameAsync(userName);
+
+            user.LastLoggedIn = date;
+
+            await userManager.UpdateAsync(user);
+        }
     }
 }

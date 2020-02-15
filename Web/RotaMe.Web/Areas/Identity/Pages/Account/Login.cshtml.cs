@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using RotaMe.Data.Models;
+using RotaMe.Services.Contracts;
 
 namespace RotaMe.Web.Areas.Identity.Pages.Account
 {
@@ -21,12 +22,15 @@ namespace RotaMe.Web.Areas.Identity.Pages.Account
         private readonly UserManager<RotaMeUser> _userManager;
         private readonly SignInManager<RotaMeUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly IUsersService usersService;
 
         public LoginModel(SignInManager<RotaMeUser> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<RotaMeUser> userManager)
+            UserManager<RotaMeUser> userManager,
+            IUsersService usersService)
         {
             _userManager = userManager;
+            this.usersService = usersService;
             _signInManager = signInManager;
             _logger = logger;
         }
@@ -84,6 +88,7 @@ namespace RotaMe.Web.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    await usersService.SetLastLoggedIn(Input.UserName, DateTime.UtcNow);
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
