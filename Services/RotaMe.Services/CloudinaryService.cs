@@ -19,7 +19,7 @@ namespace RotaMe.Services
             this.cloudinaryUtility = cloudinaryUtility;
         }
 
-        public async Task<string> UploadPictureAsync(IFormFile pictureFile, string fileName)
+        public async Task<string> UploadPictureAsync(IFormFile pictureFile, string fileName, string folderName)
         {
             byte[] destinationData;
 
@@ -35,7 +35,7 @@ namespace RotaMe.Services
             {
                 ImageUploadParams uploadParams = new ImageUploadParams
                 {
-                    Folder = "profile-pictures",
+                    Folder = folderName,
                     File = new FileDescription(fileName, ms)
                 };
 

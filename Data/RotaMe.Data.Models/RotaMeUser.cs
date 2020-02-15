@@ -28,7 +28,7 @@ namespace RotaMe.Data.Models
 
         public ICollection<Project> OwnProjects { get; set; } = new List<Project>();
         public ICollection<UserProject> Projects { get; set; } = new List<UserProject>();
-        public ICollection<Event> Events { get; set; } = new List<Event>();
+        public ICollection<UserEvent> Events { get; set; } = new List<UserEvent>();
         public ICollection<Availability> Availabilities { get; set; } = new List<Availability>();
 
     }

@@ -32,10 +32,11 @@ namespace RotaMe.Web.Areas.Identity.Pages.Account
         private readonly IEmailSender _emailSender;
         private readonly IRegisterService _registerService;
         private readonly ICloudinaryService cloudinaryService;
+        private readonly IUsersService usersService;
 
         private readonly string _maleProfilePicture = "https://res.cloudinary.com/rotame/image/upload/v1578736049/profile-pictures/male-profile-picture_kaausb.png";
         private readonly string _femaleProfilePicture = "https://res.cloudinary.com/rotame/image/upload/v1578735954/profile-pictures/female-profile-picture_okn8ca.png";
-
+        private readonly string avatarFolder = "profile-pictures";
 
         public RegisterModel(
             UserManager<RotaMeUser> userManager,
@@ -43,7 +44,8 @@ namespace RotaMe.Web.Areas.Identity.Pages.Account
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
             IRegisterService registerService,
-            ICloudinaryService cloudinaryService)
+            ICloudinaryService cloudinaryService,
+            IUsersService usersService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -51,6 +53,7 @@ namespace RotaMe.Web.Areas.Identity.Pages.Account
             _emailSender = emailSender;
             _registerService = registerService;
             this.cloudinaryService = cloudinaryService;
+            this.usersService = usersService;
         }
 
         [BindProperty]
@@ -134,7 +137,8 @@ namespace RotaMe.Web.Areas.Identity.Pages.Account
                 {
                     avatar = await this.cloudinaryService.UploadPictureAsync(
                         Input.Avatar,
-                        Input.UserName);
+                        Input.UserName,
+                        avatarFolder);
                 }
 
                 if (avatar == null)
@@ -184,6 +188,8 @@ namespace RotaMe.Web.Areas.Identity.Pages.Account
                     else
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
+
+                        await usersService.SetLastLoggedIn(Input.UserName, DateTime.UtcNow);
                         return LocalRedirect(returnUrl);
                     }
                 }

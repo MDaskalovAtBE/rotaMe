@@ -23,6 +23,7 @@ namespace RotaMe.Web.Areas.Admin.Controllers
         private readonly UserManager<RotaMeUser> userManager;
         private readonly IRegisterService registerService;
         private readonly ICloudinaryService cloudinaryService;
+        private readonly string avatarFolder = "profile-pictures";
 
         public UsersController(IUsersService usersService, UserManager<RotaMeUser> userManager, IRegisterService registerService, ICloudinaryService cloudinaryService)
         {
@@ -91,7 +92,8 @@ namespace RotaMe.Web.Areas.Admin.Controllers
             {
                 pictureUrl = await this.cloudinaryService.UploadPictureAsync(
                     userEditInputModel.Avatar,
-                    userEditInputModel.UserName);
+                    userEditInputModel.UserName,
+                    avatarFolder);
             }
 
             var userEditServiceModel = new UserEditServiceModel()
@@ -151,7 +153,8 @@ namespace RotaMe.Web.Areas.Admin.Controllers
             {
                 pictureUrl = await this.cloudinaryService.UploadPictureAsync(
                     userCreateInputModel.Avatar,
-                    userCreateInputModel.UserName);
+                    userCreateInputModel.UserName,
+                    avatarFolder);
             }
 
             UserCreateServiceModel userCreateServiceModel = new UserCreateServiceModel { 

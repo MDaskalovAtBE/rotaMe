@@ -72,8 +72,20 @@
                         <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">User</span></a>
                         <ul class="pcoded-submenu">
                             <li><a href="/Profile">My Profile</a></li>
-                            <li><a href="#">My Projects</a></li>
-                            <li><a href="#">My Availabilities</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file"></i></span><span class="pcoded-mtext">Projects</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="/Project/List">My Projects</a></li>
+                            <li><a href="/Project/Create">Create Project</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-activity"></i></span><span class="pcoded-mtext">Availabilities</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="/Availabilitie/List">My Availabilities</a></li>
+                            <li><a href="/Availabilitie/Create">Create Availability</a></li>
                         </ul>
                     </li>
                 }
@@ -88,6 +100,26 @@
                     </li>
                 }
 
+                @if (this.User.Identity.IsAuthenticated && this.User.IsInRole("Owner"))
+                {
+
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Owner Panel <span class="pcoded-badge badge badge-danger">NEW</span><span class="pcoded-badge badge badge-warning">HOT</span></label>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file"></i></span><span class="pcoded-mtext">Projects</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="/owner/projects/list">All My Projects</a></li>
+                            <li><a href="/owner/projects/create">Create Project</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-activity"></i></span><span class="pcoded-mtext">Availabilities</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="/owner/availabilities/list">All Availabilities</a></li>
+                        </ul>
+                    </li>
+                }
 
                 @if (this.User.Identity.IsAuthenticated && this.User.IsInRole("Admin"))
                 {

@@ -1,0 +1,80 @@
+﻿@using RotaMe.Web.ViewModels
+@model RotaMe.Web.InputModels.Owner.Projects.ProjectCreateInputModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+
+    <!-- ekko-lightbox css -->
+    <link rel="stylesheet" href="~/assets/css/plugins/ekko-lightbox.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/lightbox.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/daterangepicker.css">
+}
+
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+
+        <partial name="~/Views/Shared/_BreadcrumbPartial.cshtml" model='new BreadcrumbPartialViewModel() { Controller = "Projects", Action = "Create Project"}' />
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- [ Form Validation ] start -->
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Create Project Form</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" asp-for="Title"></label>
+                                        <input type="text" class="form-control" placeholder="Title" asp-for="Title">
+                                        <span asp-validation-for="Title" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" asp-for="Image"></label>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="Image" asp-for="Image">
+                                            <label class="custom-file-label" asp-for="Image">Choose Image</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label" asp-for="Description">Description</label>
+                                        <textarea class="form-control" asp-for="Description"></textarea>
+                                        <span asp-validation-for="Description" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn  btn-primary">Create Project</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- [ Form Validation ] end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</section>
+
+@section Scripts{
+
+    <!-- jquery-validation Js -->
+    <script src="~/assets/js/plugins/jquery.validate.min.js"></script>
+    <!-- form-picker-custom Js -->
+    <script src="~/assets/js/pages/form-validation.js"></script>
+    <!-- datepicker js -->
+    <script src="~/assets/js/plugins/moment.min.js"></script>
+    <script src="~/assets/js/plugins/daterangepicker.js"></script>
+    <script src="~/assets/js/pages/ac-datepicker.js"></script>
+}
+

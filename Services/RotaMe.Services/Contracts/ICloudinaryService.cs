@@ -8,6 +8,6 @@ namespace RotaMe.Services.Contracts
 {
     public interface ICloudinaryService
     {
-        Task<string> UploadPictureAsync(IFormFile pictureFile, string fileName);
+        Task<string> UploadPictureAsync(IFormFile pictureFile, string fileName, string folderName);
     }
 }

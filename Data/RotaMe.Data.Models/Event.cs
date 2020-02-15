@@ -15,12 +15,6 @@ namespace RotaMe.Data.Models
 
 
         [Required]
-        public string CreatorId { get; set; }
-
-        public RotaMeUser Creator { get; set; }
-
-
-        [Required]
         public int ProjectId { get; set; }
 
         public Project Project { get; set; }
@@ -34,6 +28,7 @@ namespace RotaMe.Data.Models
 
 
         public ICollection<EventNeed> EventNeeds { get; set; } = new List<EventNeed>();
+        public ICollection<UserEvent> Users { get; set; } = new List<UserEvent>();
         public ICollection<Availability> Availabilities { get; set; } = new List<Availability>();
     }
 }

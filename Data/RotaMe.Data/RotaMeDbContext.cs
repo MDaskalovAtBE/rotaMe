@@ -29,8 +29,17 @@ namespace RotaMe.Data
                 .Property(u => u.Id)
                 .ValueGeneratedOnAdd();
 
+            modelBuilder.Entity<Project>()
+                .HasOne(p => p.Owner)
+                .WithMany(u => u.OwnProjects)
+                .OnDelete(DeleteBehavior.NoAction)
+                .HasForeignKey(p => p.OwnerId);
+
             modelBuilder.Entity<UserProject>()
                 .HasKey(up => new { up.UserId, up.ProjectId });
+
+            modelBuilder.Entity<UserEvent>()
+                .HasKey(ue => new { ue.UserId, ue.EventId });
 
             modelBuilder.Entity<Availability>()
                 .HasKey(a => a.Id);
@@ -56,6 +65,18 @@ namespace RotaMe.Data
                 .HasOne(up => up.Project)
                 .WithMany(p => p.Users)
                 .HasForeignKey(up => up.ProjectId);
+
+
+
+            modelBuilder.Entity<UserEvent>()
+                .HasOne(ue => ue.User)
+                .WithMany(u => u.Events)
+                .HasForeignKey(ue => ue.UserId);
+
+            modelBuilder.Entity<UserEvent>()
+                .HasOne(ue => ue.Event)
+                .WithMany(e => e.Users)
+                .HasForeignKey(ue => ue.EventId);
         }
     }
 }

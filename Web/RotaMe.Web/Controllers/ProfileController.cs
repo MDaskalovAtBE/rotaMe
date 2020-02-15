@@ -21,7 +21,8 @@ namespace RotaMe.Web.Controllers
         private readonly IUsersService usersService;
         private readonly UserManager<RotaMeUser> userManager;
         private readonly IRegisterService registerService;
-        private readonly ICloudinaryService cloudinaryService;
+        private readonly ICloudinaryService cloudinaryService; 
+        private readonly string avatarFolder = "profile-pictures";
 
         public ProfileController(IUsersService usersService, UserManager<RotaMeUser> userManager, IRegisterService registerService, ICloudinaryService cloudinaryService)
         {
@@ -78,7 +79,8 @@ namespace RotaMe.Web.Controllers
             {
                 pictureUrl = await this.cloudinaryService.UploadPictureAsync(
                     userEditInputModel.Avatar,
-                    userEditInputModel.UserName);
+                    userEditInputModel.UserName,
+                    avatarFolder);
             }
 
             var userEditServiceModel = new UserEditServiceModel()
