@@ -9,6 +9,7 @@ using RotaMe.Services.Mapping;
 using RotaMe.Sevices.Models;
 using RotaMe.Sevices.Models.Administration.Roles;
 using RotaMe.Sevices.Models.Administration.Users;
+using RotaMe.Sevices.Models.Owner.Users;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -148,6 +149,12 @@ namespace RotaMe.Services
             user.LastLoggedIn = date;
 
             await userManager.UpdateAsync(user);
+        }
+
+        public IQueryable<UsersListToAddToProjectServiceModel> GetAllUsersToAdd()
+        {
+            var users = this.context.Users.To<UsersListToAddToProjectServiceModel>();
+            return users;
         }
     }
 }

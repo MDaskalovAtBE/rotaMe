@@ -114,6 +114,42 @@ $(document).ready(function() {
                 }
             });
     });
+    // [ sweet-multiple-delete-project ]
+    $('.sweet-multiple-delete-project').on('click', function (event) {
+        event.preventDefault();
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this project!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        type: "POST",
+                        url: this.href,
+                        success: function () {
+                            swal("Poof! The project has been deleted!", {
+                                icon: "success",
+                            }).then(() => {
+                                location.reload();
+                            });
+                        },
+                        error: function () {
+                            swal("The project hasn't been deleted!", {
+                                icon: "error",
+                            });
+                        },
+                    })
+                } else {
+                    swal("The project hasn't been deleted!", {
+                        icon: "error",
+                    });
+
+                }
+            });
+    });
     // [ sweet-prompt ]
     $('.sweet-prompt').on('click', function() {
         swal("Write something here:", {

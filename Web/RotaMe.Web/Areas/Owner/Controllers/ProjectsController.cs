@@ -4,8 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RotaMe.Services.Contracts;
+using RotaMe.Services.Mapping;
 using RotaMe.Sevices.Models.Owner.Projects;
 using RotaMe.Web.InputModels.Owner.Projects;
+using RotaMe.Web.ViewModels.Owner.Projects;
+using RotaMe.Web.ViewModels.Owner.Users;
 
 namespace RotaMe.Web.Areas.Owner.Controllers
 {
@@ -14,11 +17,13 @@ namespace RotaMe.Web.Areas.Owner.Controllers
         private readonly IProjectsService projectsService;
         private readonly ICloudinaryService cloudinaryService;
         private readonly string imageFolder = "project-pictures";
+        private readonly IUsersService usersService;
 
-        public ProjectsController(IProjectsService projectsService, ICloudinaryService cloudinaryService)
+        public ProjectsController(IProjectsService projectsService, ICloudinaryService cloudinaryService, IUsersService usersService)
         {
             this.projectsService = projectsService;
             this.cloudinaryService = cloudinaryService;
+            this.usersService = usersService;
         }
 
         [HttpGet]
@@ -59,6 +64,85 @@ namespace RotaMe.Web.Areas.Owner.Controllers
 
             var result = await this.projectsService.Create(projectCreateServiceModel);
 
+
+            if (!result)
+            {
+                return this.View();
+            }
+
+            return this.Redirect("/owner/projects/list");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> List()
+        {
+            var ownerId = HttpContext.User.FindFirst("Id").Value;
+
+            var projectsFromService = await projectsService.GetOwnerProjects(ownerId);
+
+            var projectslistViewModel = projectsFromService.Select(p => new ProjectListViewModel
+            {
+                Id = p.Id,
+                Title = p.Title,
+                Description = p.Description.Substring(0, 50) + "...",
+                Image = p.Image,
+                Slug = p.Slug,
+                UsersCount = p.UsersCount
+            });
+
+            return View(projectslistViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+
+            var isProjectDeleted = await projectsService.Delete(id);
+
+            if (isProjectDeleted)
+            {
+                return this.StatusCode(200);
+            }
+
+            return this.StatusCode(400);
+        }
+
+        [HttpGet]
+        public IActionResult AddUser(int id)
+        {
+            var users = usersService.GetAllUsersToAdd().To<UsersListToAddToProjectViewModel>().ToList();
+            var projects = projectsService.GetAllProjectsToAddUser().To<ProjectsListToAddUserViewModel>().ToList();
+
+            if (id != 0)
+            {
+                var project = projects.FirstOrDefault(p => p.Id == id);
+                if (project != null)
+                {
+                    project.Selected = true;
+                }
+            }
+
+            this.ViewData["users"] = users;
+            this.ViewData["projects"] = projects;
+
+            return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddUser(UserAddToProjectInputModel userAddToProjectInputModel)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View();
+            }
+
+            var userAddToProjectServiceModel = new UserAddToProjectServiceModel()
+            {
+                UserId = userAddToProjectInputModel.UserId,
+                ProjectId = userAddToProjectInputModel.ProjectId
+            };
+
+            var result = await projectsService.AddUserToProject(userAddToProjectServiceModel);
 
             if (!result)
             {
