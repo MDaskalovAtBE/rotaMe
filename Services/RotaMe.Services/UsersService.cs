@@ -45,14 +45,12 @@ namespace RotaMe.Services
 
         public IQueryable<ListUserServiceModel> GetAllUsers()
         {
-            var users = this.context.Users;
-            return users.To<ListUserServiceModel>();
+            return this.context.Users.To<ListUserServiceModel>();
         }
 
         public IQueryable<ListUsersToAssignServiceModel> GetAllUsersToAssign()
         {
-            var users = this.context.Users;
-            return users.To<ListUsersToAssignServiceModel>();
+            return this.context.Users.To<ListUsersToAssignServiceModel>();
         }
         public async Task<IEnumerable<ListUsersToUnassignServiceModel>> GetAllUsersToUnassign()
         {
@@ -153,8 +151,7 @@ namespace RotaMe.Services
 
         public IQueryable<UsersListToAddToProjectServiceModel> GetAllUsersToAdd()
         {
-            var users = this.context.Users.To<UsersListToAddToProjectServiceModel>();
-            return users;
+            return this.context.Users.To<UsersListToAddToProjectServiceModel>();
         }
     }
 }

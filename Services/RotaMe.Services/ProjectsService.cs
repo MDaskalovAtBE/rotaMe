@@ -47,16 +47,13 @@ namespace RotaMe.Services
 
         public async Task<IEnumerable<OwnerProjectsListServiceModel>> GetOwnerProjects(string ownerId)
         {
-            var projects = await context.Projects.Where(p => p.OwnerId == ownerId).Include(p => p.Users).To<OwnerProjectsListServiceModel>().ToListAsync();
-
-            return projects;
+            return await context.Projects.Where(p => p.OwnerId == ownerId).Include(p => p.Users).To<OwnerProjectsListServiceModel>().ToListAsync();
         }
 
         public async Task<IEnumerable<ProjectsListServiceModel>> GetAllProjects()
         {
-            var projects = await context.Projects.Include(p => p.Users).To<ProjectsListServiceModel>().ToListAsync();
 
-            return projects;
+            return await context.Projects.Include(p => p.Users).To<ProjectsListServiceModel>().ToListAsync();
         }
 
         public async Task<bool> Delete(int id)
@@ -72,9 +69,8 @@ namespace RotaMe.Services
 
         public IQueryable<ProjectsListToAddUserServiceModel> GetAllProjectsToAddUser()
         {
-            var projects = context.Projects.To<ProjectsListToAddUserServiceModel>();
 
-            return projects;
+            return context.Projects.To<ProjectsListToAddUserServiceModel>();
         }
 
         public async Task<bool> AddUserToProject(UserAddToProjectServiceModel userAddToProjectServiceModel)

@@ -41,18 +41,7 @@
                                             @foreach (var project in Model)
                                             {
                                                 projectsCount++;
-                                                var evenOdd = "";
-
-                                                if (projectsCount % 2 == 0)
-                                                {
-                                                    evenOdd = "even";
-                                                }
-                                                else
-                                                {
-                                                    evenOdd = "odd";
-                                                }
-
-                                                <tr class="has-row-options @evenOdd" role="row">
+                                                <tr class="has-row-options @project.EvenOdd" role="row">
                                                     <td>@projectsCount</td>
                                                     <td>
                                                         <div class="d-inline-block align-middle">

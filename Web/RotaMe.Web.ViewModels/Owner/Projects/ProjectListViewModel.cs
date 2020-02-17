@@ -17,5 +17,7 @@ namespace RotaMe.Web.ViewModels.Owner.Projects
         public string Image { get; set; }
 
         public int UsersCount { get; set; }
+
+        public string EvenOdd { get; set; }
     }
 }
