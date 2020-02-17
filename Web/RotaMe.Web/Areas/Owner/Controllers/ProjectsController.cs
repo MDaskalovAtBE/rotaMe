@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using RotaMe.Services.Contracts;
 using RotaMe.Services.Mapping;
 using RotaMe.Sevices.Models.Owner.Projects;
@@ -131,6 +132,32 @@ namespace RotaMe.Web.Areas.Owner.Controllers
             return this.View();
         }
 
+        [HttpGet]
+        public IActionResult RemoveUser(int id)
+        {
+            var projectsServiceModel = projectsService.GetAllProjectsToRemoveUser().ToList();
+
+            var projects = projectsServiceModel.Select(p => new ProjectsListToRemoveUserViewModel()
+            {
+                Id = p.Id,
+                Title = p.Title,
+                Users = JsonConvert.SerializeObject(p.Users)
+            }).ToList();
+
+            if (id != 0)
+            {
+                var project = projects.FirstOrDefault(p => p.Id == id);
+                if (project != null)
+                {
+                    project.Selected = true;
+                }
+            }
+
+            this.ViewData["projects"] = projects;
+
+            return this.View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddUser(UserAddToProjectInputModel userAddToProjectInputModel)
         {
@@ -146,6 +173,30 @@ namespace RotaMe.Web.Areas.Owner.Controllers
             };
 
             var result = await projectsService.AddUserToProject(userAddToProjectServiceModel);
+
+            if (!result)
+            {
+                return this.View();
+            }
+
+            return this.Redirect("/owner/projects/list");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RemoveUser(UserRemoveFromProjectInputModel userRemoveFromProjectInputModel)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View();
+            }
+
+            var projectRemoveUserServiceModel = new ProjectRemoveUserServiceModel()
+            {
+                ProjectId = userRemoveFromProjectInputModel.ProjectId,
+                Username = userRemoveFromProjectInputModel.Username
+            };
+
+            var result = await projectsService.ProjectRemoveUser(projectRemoveUserServiceModel);
 
             if (!result)
             {

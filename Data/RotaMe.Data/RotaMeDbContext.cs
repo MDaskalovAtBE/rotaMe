@@ -9,6 +9,7 @@ namespace RotaMe.Data
     public class RotaMeDbContext : IdentityDbContext<RotaMeUser, IdentityRole, string>
     {
         public DbSet<Project> Projects { get; set; }
+        public DbSet<UserProject> UserProjects { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<EventNeed> EventNeeds { get; set; }
         public DbSet<Gender> Genders { get; set; }
