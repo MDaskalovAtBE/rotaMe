@@ -40,7 +40,7 @@ namespace RotaMe.Web.Areas.Admin.Controllers
                 .GetAllUsers()
                 .To<UsersListViewModel>()
                 .ToListAsync();
-
+            
             for (int i = 0; i < users.Count(); i++)
             {
                 var user = await userManager.FindByEmailAsync(users[i].Email);

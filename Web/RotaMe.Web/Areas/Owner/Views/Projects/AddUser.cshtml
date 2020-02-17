@@ -1,6 +1,6 @@
-﻿@model RotaMe.Web.InputModels.Administration.Roles.RoleAssignToUserInputModel
-@using RotaMe.Web.ViewModels.Administration.Users
-@using RotaMe.Web.ViewModels.Administration.Roles
+﻿@model RotaMe.Web.InputModels.Owner.Projects.UserAddToProjectInputModel
+@using RotaMe.Web.ViewModels.Owner.Users
+@using RotaMe.Web.ViewModels.Owner.Projects
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
@@ -18,45 +18,50 @@
 <section class="pcoded-main-container">
     <div class="pcoded-content">
 
-        <partial name="~/Views/Shared/_BreadcrumbPartial.cshtml" model='new BreadcrumbPartialViewModel() { Controller = "Roles", Action = "Assign Role"}' />
+        <partial name="~/Views/Shared/_BreadcrumbPartial.cshtml" model='new BreadcrumbPartialViewModel() { Controller = "Projects", Action = "Add User to Project"}' />
         <!-- [ Main Content ] start -->
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Assign Role</h5>
+                        <h5>Add User to Project</h5>
                     </div>
                     <div class="card-body">
                         <form method="post">
                             <div class="row">
                                 <div class="col-xl-5 col-md-4 mb-5">
-                                    <h5>Select User</h5>
+                                    <h5>Select Role</h5>
                                     <hr>
-                                    <select asp-for="UserId" class="js-example-basic-single form-control">
-                                        @foreach (var user in (IEnumerable<UsersListToAssignViewModel>)this.ViewData["users"])
+                                    <select asp-for="ProjectId" class="js-example-basic-single form-control">
+                                        @foreach (var project in (IEnumerable<ProjectsListToAddUserViewModel>)this.ViewData["projects"])
                                         {
-                                            <option value="@user.Id">@user.Username</option>
+                                            if (project.Selected)
+                                            {
+                                                <option selected value="@project.Id">@project.Title</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="@project.Id">@project.Title</option>
+                                            }
                                         }
                                     </select>
                                 </div>
-
-
                             </div>
                             <div class="row">
                                 <div class="col-xl-5 col-md-4 mb-5">
-                                    <h5>Select Role</h5>
+                                    <h5>Select User</h5>
                                     <hr>
-                                    <select asp-for="RoleName" class="js-example-basic-single form-control">
-                                        @foreach (var role in (IEnumerable<RolesListToAssignViewModel>)this.ViewData["roles"])
+                                    <select asp-for="UserId" class="js-example-basic-single form-control">
+                                        @foreach (var user in (IEnumerable<UsersListToAddToProjectViewModel>)this.ViewData["users"])
                                         {
-                                            <option value="@role.Name">@role.Name</option>
+                                            <option value="@user.Id">@user.Username</option>
                                         }
                                     </select>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xl-2 col-md-2 mb-2">
-                                    <button type="submit" class="btn  btn-primary mb-2">Assign</button>
+                                    <button type="submit" class="btn  btn-primary mb-2">Add User</button>
                                 </div>
                             </div>
                         </form>

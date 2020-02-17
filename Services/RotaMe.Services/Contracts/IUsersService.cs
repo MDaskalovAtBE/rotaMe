@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RotaMe.Sevices.Models;
 using RotaMe.Sevices.Models.Administration.Users;
+using RotaMe.Sevices.Models.Owner.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace RotaMe.Services.Contracts
         IQueryable<ListUserServiceModel> GetAllUsers();
 
         IQueryable<ListUsersToAssignServiceModel> GetAllUsersToAssign();
+
+        IQueryable<UsersListToAddToProjectServiceModel> GetAllUsersToAdd();
 
         Task<IEnumerable<ListUsersToUnassignServiceModel>> GetAllUsersToUnassign();
 

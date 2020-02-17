@@ -191,3 +191,6 @@ D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\RotaMe.Web.MvcApplicat
 D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\RotaMe.Web.MvcApplicationPartsAssemblyInfo.cache
 D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Views\Profile\Index.cshtml.g.cs
 D:\Projects\RotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\Views\Projects\Create.cshtml.g.cs
+D:\Projects\RotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\Views\Projects\List.cshtml.g.cs
+D:\Projects\RotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\Views\_ViewImports.cshtml.g.cs
+D:\Projects\RotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\Views\Projects\AddUser.cshtml.g.cs

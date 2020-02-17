@@ -58,8 +58,7 @@ namespace RotaMe.Services
 
         public IQueryable<ListRolesToAssignServiceModel> GetAllRolesToAssign()
         {
-            var users = this.context.Roles;
-            return users.To<ListRolesToAssignServiceModel>();
+            return this.context.Roles.To<ListRolesToAssignServiceModel>();
         }
 
         public async Task<IEnumerable<ListRoleServiceModel>> GetAllRoles()

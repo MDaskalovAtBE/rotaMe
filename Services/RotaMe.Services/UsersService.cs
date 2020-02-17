@@ -9,6 +9,7 @@ using RotaMe.Services.Mapping;
 using RotaMe.Sevices.Models;
 using RotaMe.Sevices.Models.Administration.Roles;
 using RotaMe.Sevices.Models.Administration.Users;
+using RotaMe.Sevices.Models.Owner.Users;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -44,14 +45,12 @@ namespace RotaMe.Services
 
         public IQueryable<ListUserServiceModel> GetAllUsers()
         {
-            var users = this.context.Users;
-            return users.To<ListUserServiceModel>();
+            return this.context.Users.To<ListUserServiceModel>();
         }
 
         public IQueryable<ListUsersToAssignServiceModel> GetAllUsersToAssign()
         {
-            var users = this.context.Users;
-            return users.To<ListUsersToAssignServiceModel>();
+            return this.context.Users.To<ListUsersToAssignServiceModel>();
         }
         public async Task<IEnumerable<ListUsersToUnassignServiceModel>> GetAllUsersToUnassign()
         {
@@ -148,6 +147,11 @@ namespace RotaMe.Services
             user.LastLoggedIn = date;
 
             await userManager.UpdateAsync(user);
+        }
+
+        public IQueryable<UsersListToAddToProjectServiceModel> GetAllUsersToAdd()
+        {
+            return this.context.Users.To<UsersListToAddToProjectServiceModel>();
         }
     }
 }

@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using RotaMe.Data;
 using RotaMe.Data.Models;
 using RotaMe.Services.Contracts;
+using RotaMe.Services.Mapping;
 using RotaMe.Sevices.Models.Owner.Projects;
 using System;
 using System.Collections.Generic;
@@ -41,6 +43,54 @@ namespace RotaMe.Services
             }
 
             return false;
+        }
+
+        public async Task<IEnumerable<OwnerProjectsListServiceModel>> GetOwnerProjects(string ownerId)
+        {
+            return await context.Projects.Where(p => p.OwnerId == ownerId).Include(p => p.Users).To<OwnerProjectsListServiceModel>().ToListAsync();
+        }
+
+        public async Task<IEnumerable<ProjectsListServiceModel>> GetAllProjects()
+        {
+
+            return await context.Projects.Include(p => p.Users).To<ProjectsListServiceModel>().ToListAsync();
+        }
+
+        public async Task<bool> Delete(int id)
+        {
+            var project = await context.Projects.FindAsync(id);
+
+            var result = context.Projects.Remove(project);
+
+            context.SaveChanges();
+
+            return false ? result == null : true;
+        }
+
+        public IQueryable<ProjectsListToAddUserServiceModel> GetAllProjectsToAddUser()
+        {
+
+            return context.Projects.To<ProjectsListToAddUserServiceModel>();
+        }
+
+        public async Task<bool> AddUserToProject(UserAddToProjectServiceModel userAddToProjectServiceModel)
+        {
+            var project = await context.Projects.FirstOrDefaultAsync(p => p.Id == userAddToProjectServiceModel.ProjectId);
+
+            if (project == null)
+            {
+                return false;
+            }
+
+            project.Users.Add(new UserProject()
+            {
+                UserId = userAddToProjectServiceModel.UserId,
+                ProjectId = userAddToProjectServiceModel.ProjectId
+            });
+
+            await context.SaveChangesAsync();
+
+            return true;
         }
     }
 }
