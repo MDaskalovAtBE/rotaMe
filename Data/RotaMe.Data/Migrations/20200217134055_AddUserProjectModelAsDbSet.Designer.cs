@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RotaMe.Data;
 
 namespace RotaMe.Data.Migrations
 {
     [DbContext(typeof(RotaMeDbContext))]
-    partial class RotaMeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200217134055_AddUserProjectModelAsDbSet")]
+    partial class AddUserProjectModelAsDbSet
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -16,10 +16,12 @@ namespace RotaMe.Services
     public class ProjectsService : IProjectsService
     {
         private readonly RotaMeDbContext context;
+        private readonly UserManager<RotaMeUser> userManager;
 
-        public ProjectsService(RotaMeDbContext context)
+        public ProjectsService(RotaMeDbContext context, UserManager<RotaMeUser> userManager)
         {
             this.context = context;
+            this.userManager = userManager;
         }
 
         public async Task<bool> Create(ProjectCreateServiceModel projectCreateServiceModel)
@@ -73,6 +75,20 @@ namespace RotaMe.Services
             return context.Projects.To<ProjectsListToAddUserServiceModel>();
         }
 
+        public IEnumerable<ProjectsListToRemoveUserServiceModel> GetAllProjectsToRemoveUser()
+        {
+            var projectsFromDb = this.context.Projects.Include(p => p.Users).ThenInclude(u => u.User).ToList();
+
+            var projects = projectsFromDb.Select(p => new ProjectsListToRemoveUserServiceModel() 
+            { 
+                Id = p.Id,
+                Title = p.Title,
+                Users = p.Users.Select(u => u.User.UserName).ToList()
+            }).ToList();
+
+            return projects;
+        }
+
         public async Task<bool> AddUserToProject(UserAddToProjectServiceModel userAddToProjectServiceModel)
         {
             var project = await context.Projects.FirstOrDefaultAsync(p => p.Id == userAddToProjectServiceModel.ProjectId);
@@ -88,6 +104,22 @@ namespace RotaMe.Services
                 ProjectId = userAddToProjectServiceModel.ProjectId
             });
 
+            await context.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> ProjectRemoveUser(ProjectRemoveUserServiceModel projectRemoveUserServiceModel)
+        {
+            var user = await userManager.FindByNameAsync(projectRemoveUserServiceModel.Username);
+            var projects = await context.Projects.FirstOrDefaultAsync(p => p.Id == projectRemoveUserServiceModel.ProjectId);
+
+            var userProject = await context.UserProjects.FirstOrDefaultAsync(up => 
+                up.ProjectId == projectRemoveUserServiceModel.ProjectId 
+                && up.UserId == user.Id);
+
+            projects.Users.Remove(userProject); 
+            
             await context.SaveChangesAsync();
 
             return true;
