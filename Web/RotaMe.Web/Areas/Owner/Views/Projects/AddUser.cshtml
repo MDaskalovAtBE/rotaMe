@@ -36,13 +36,13 @@
                                         @foreach (var project in (IEnumerable<ProjectsListToAddUserViewModel>)this.ViewData["projects"])
                                         {
                                             if (project.Selected)
-                                            {
-                                                <option selected value="@project.Id">@project.Title</option>
-                                            }
-                                            else
-                                            {
-                                                <option value="@project.Id">@project.Title</option>
-                                            }
+                                                {
+                                                    <option selected value="@project.Id">@project.Title</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@project.Id">@project.Title</option>
+                                                }
                                         }
                                     </select>
                                 </div>

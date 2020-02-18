@@ -18,7 +18,7 @@ namespace RotaMe.Web.InputModels.Owner.Projects
 
 
         [Required]
-        [MinLength(10)]
+        [MinLength(50)]
         public string Description { get; set; }
 
         [Required]
