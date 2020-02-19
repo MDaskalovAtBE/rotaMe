@@ -195,3 +195,5 @@ D:\Projects\RotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\View
 D:\Projects\RotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\Views\_ViewImports.cshtml.g.cs
 D:\Projects\RotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\Views\Projects\AddUser.cshtml.g.cs
 D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\Views\Projects\RemoveUser.cshtml.g.cs
+D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\Views\Events\Create.cshtml.g.cs
+D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\Views\Projects\Details.cshtml.g.cs

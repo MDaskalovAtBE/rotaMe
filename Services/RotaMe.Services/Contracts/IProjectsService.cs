@@ -12,8 +12,14 @@ namespace RotaMe.Services.Contracts
         Task<bool> Create(ProjectCreateServiceModel projectCreateServiceModel);
         Task<IEnumerable<ProjectsListServiceModel>> GetAllProjects();
         Task<IEnumerable<OwnerProjectsListServiceModel>> GetOwnerProjects(string ownerId);
-        IQueryable<ProjectsListToAddUserServiceModel> GetAllProjectsToAddUser();
-        IEnumerable<ProjectsListToRemoveUserServiceModel> GetAllProjectsToRemoveUser();
+
+        ProjectDetailsServiceModel GetOwnerProjectDetails(string ownerId, int projectId);
+
+        IQueryable<ProjectsListToAddUserServiceModel> GetAllOwnerProjectsToAddUser(string ownerId);
+
+        IQueryable<ProjectsListToCreateEventServiceModel> GetAllOwnerProjectsToCreateEvent(string ownerId);
+
+        IQueryable<ProjectsListToRemoveUserServiceModel> GetAllOwnerProjectsToRemoveUser(string ownerId);
         Task<bool> ProjectRemoveUser(ProjectRemoveUserServiceModel projectRemoveUserServiceModel);
 
         Task<bool> AddUserToProject(UserAddToProjectServiceModel userAddToProjectServiceModel);
