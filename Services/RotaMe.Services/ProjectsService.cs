@@ -69,24 +69,21 @@ namespace RotaMe.Services
             return false ? result == null : true;
         }
 
-        public IQueryable<ProjectsListToAddUserServiceModel> GetAllProjectsToAddUser()
+        public IQueryable<ProjectsListToAddUserServiceModel> GetAllOwnerProjectsToAddUser(string ownerId)
         {
 
-            return context.Projects.To<ProjectsListToAddUserServiceModel>();
+            return context.Projects.Where(p => p.OwnerId == ownerId).To<ProjectsListToAddUserServiceModel>();
         }
 
-        public IEnumerable<ProjectsListToRemoveUserServiceModel> GetAllProjectsToRemoveUser()
+        public IQueryable<ProjectsListToCreateEventServiceModel> GetAllOwnerProjectsToCreateEvent(string ownerId)
         {
-            var projectsFromDb = this.context.Projects.Include(p => p.Users).ThenInclude(u => u.User).ToList();
+            return context.Projects.Where(p => p.OwnerId == ownerId).To<ProjectsListToCreateEventServiceModel>();
+        }
 
-            var projects = projectsFromDb.Select(p => new ProjectsListToRemoveUserServiceModel() 
-            { 
-                Id = p.Id,
-                Title = p.Title,
-                Users = p.Users.Select(u => u.User.UserName).ToList()
-            }).ToList();
+        public IQueryable<ProjectsListToRemoveUserServiceModel> GetAllOwnerProjectsToRemoveUser(string ownerId)
+        {
+            return this.context.Projects.Where(p => p.OwnerId == ownerId).Include(p => p.Users).ThenInclude(u => u.User).To<ProjectsListToRemoveUserServiceModel>();
 
-            return projects;
         }
 
         public async Task<bool> AddUserToProject(UserAddToProjectServiceModel userAddToProjectServiceModel)
@@ -94,6 +91,15 @@ namespace RotaMe.Services
             var project = await context.Projects.FirstOrDefaultAsync(p => p.Id == userAddToProjectServiceModel.ProjectId);
 
             if (project == null)
+            {
+                return false;
+            }
+
+            var userProject = await context.UserProjects.FirstOrDefaultAsync(up => 
+                up.ProjectId == userAddToProjectServiceModel.ProjectId && 
+                up.UserId == userAddToProjectServiceModel.UserId);
+
+            if (userProject != null)
             {
                 return false;
             }
@@ -123,6 +129,18 @@ namespace RotaMe.Services
             await context.SaveChangesAsync();
 
             return true;
+        }
+
+        public ProjectDetailsServiceModel GetOwnerProjectDetails(string ownerId, int projectId)
+        {
+
+            return context.Projects
+                .Include(p => p.Events)
+                .Include(p => p.Events)
+                .Include(p => p.Users).ThenInclude(u => u.User)
+                .To<ProjectDetailsServiceModel>()
+                .FirstOrDefault(p => p.OwnerId == ownerId);
+
         }
     }
 }

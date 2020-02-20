@@ -82,6 +82,7 @@ namespace RotaMe.Web
             services.AddTransient<IUsersService, UsersService>();
             services.AddTransient<IRolesService, RolesService>();
             services.AddTransient<IProjectsService, ProjectsService>();
+            services.AddTransient<IEventsService, EventsService>();
             services.AddTransient<IRegisterService, RegisterService>();
             services.AddTransient<ICloudinaryService, CloudinaryService>();
 

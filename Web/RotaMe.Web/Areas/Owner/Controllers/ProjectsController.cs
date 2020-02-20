@@ -8,6 +8,7 @@ using RotaMe.Services.Contracts;
 using RotaMe.Services.Mapping;
 using RotaMe.Sevices.Models.Owner.Projects;
 using RotaMe.Web.InputModels.Owner.Projects;
+using RotaMe.Web.ViewModels.Owner.Events;
 using RotaMe.Web.ViewModels.Owner.Projects;
 using RotaMe.Web.ViewModels.Owner.Users;
 
@@ -114,8 +115,10 @@ namespace RotaMe.Web.Areas.Owner.Controllers
         [HttpGet]
         public IActionResult AddUser(int id)
         {
+            var ownerId = HttpContext.User.FindFirst("Id").Value;
             var users = usersService.GetAllUsersToAdd().To<UsersListToAddToProjectViewModel>().ToList();
-            var projects = projectsService.GetAllProjectsToAddUser().To<ProjectsListToAddUserViewModel>().ToList();
+            var projects = projectsService.GetAllOwnerProjectsToAddUser(ownerId).To<ProjectsListToAddUserViewModel>().ToList();
+
 
             if (id != 0)
             {
@@ -135,7 +138,8 @@ namespace RotaMe.Web.Areas.Owner.Controllers
         [HttpGet]
         public IActionResult RemoveUser(int id)
         {
-            var projectsServiceModel = projectsService.GetAllProjectsToRemoveUser().ToList();
+            var ownerId = HttpContext.User.FindFirst("Id").Value;
+            var projectsServiceModel = projectsService.GetAllOwnerProjectsToRemoveUser(ownerId).ToList();
 
             var projects = projectsServiceModel.Select(p => new ProjectsListToRemoveUserViewModel()
             {
@@ -176,7 +180,7 @@ namespace RotaMe.Web.Areas.Owner.Controllers
 
             if (!result)
             {
-                return this.View();
+                return this.Redirect("/owner/projects/addUser");
             }
 
             return this.Redirect("/owner/projects/list");
@@ -204,6 +208,44 @@ namespace RotaMe.Web.Areas.Owner.Controllers
             }
 
             return this.Redirect("/owner/projects/list");
+        }
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var ownerId = HttpContext.User.FindFirst("Id").Value;
+            var project = projectsService.GetOwnerProjectDetails(ownerId, id);
+            var projectsViewModel = new ProjectDetailsViewModel() 
+            { 
+                Id = project.Id,
+                Title = project.Title,
+                Description = project.Description,
+                Image = project.Image,
+                Events = project.Events.Select(e => new ProjectEventsListViewModel() 
+                { 
+                    Id = e.Id,
+                    Name = e.Name,
+                    Description = e.Description,
+                    Image = e.Image,
+                    Slug = e.Slug,
+                    Availabilities = e.Availabilities,
+                    EventNeeds = e.EventNeeds,
+                    Users = e.Users
+                }).ToList(),
+                Users = project.Users.Select(u => new ProjectUsersListViewModel() 
+                { 
+                    Id = u.Id,
+                    Avatar = u.Avatar,
+                    Username = u.Username,
+                    FullName = u.FullName,
+                    LastLoggedIn = u.LastLoggedIn
+                }).ToList()
+            };
+
+
+            this.ViewData["projectDetails"] = projectsViewModel;
+
+            return this.View();
         }
     }
 }
