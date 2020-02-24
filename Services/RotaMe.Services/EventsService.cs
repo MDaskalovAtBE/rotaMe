@@ -41,5 +41,20 @@ namespace RotaMe.Services
 
             return true;
         }
+
+        public async Task<bool> Delete(int id)
+        {
+            var eventFromDb = await context.Events.FirstOrDefaultAsync(e => e.Id == id);
+
+            if (eventFromDb == null)
+            {
+                return false;
+            }
+
+            context.Events.Remove(eventFromDb);
+            await context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }

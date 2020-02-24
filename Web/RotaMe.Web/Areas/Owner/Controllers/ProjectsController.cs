@@ -247,5 +247,32 @@ namespace RotaMe.Web.Areas.Owner.Controllers
 
             return this.View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Details(int id, ProjectEditInputModel projectEditInputModel)
+        {
+            string pictureUrl = null;
+
+            if (projectEditInputModel.Image != null)
+            {
+                pictureUrl = await this.cloudinaryService.UploadPictureAsync(
+                    projectEditInputModel.Image,
+                    projectEditInputModel.Title,
+                    imageFolder);
+            }
+
+            var projectEditServiceModel = new ProjectEditServiceModel()
+            {
+                Id = id,
+                Title = projectEditInputModel.Title,
+                Slug = projectEditInputModel.Title.ToLower().Replace(" ", string.Empty),
+                Description = projectEditInputModel.Description,
+                Image = pictureUrl
+            };
+
+            var result = await projectsService.Edit(projectEditServiceModel);
+
+            return this.RedirectToAction("Details", new { id = id });
+        }
     }
 }

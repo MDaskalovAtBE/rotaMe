@@ -135,12 +135,38 @@ namespace RotaMe.Services
         {
 
             return context.Projects
+                .Where(p => p.OwnerId == ownerId)
                 .Include(p => p.Events)
                 .Include(p => p.Events)
                 .Include(p => p.Users).ThenInclude(u => u.User)
                 .To<ProjectDetailsServiceModel>()
-                .FirstOrDefault(p => p.OwnerId == ownerId);
+                .FirstOrDefault(p => p.Id == projectId);
 
+        }
+
+        public async Task<bool> Edit(ProjectEditServiceModel projectEditServiceModel)
+        {
+            var project = await context.Projects.FirstOrDefaultAsync(p => p.Id == projectEditServiceModel.Id);
+
+            if (project == null)
+            {
+                return false;
+            }
+
+            project.Title = projectEditServiceModel.Title;
+            project.Slug = projectEditServiceModel.Slug;
+            project.Description = projectEditServiceModel.Description;
+
+            if (projectEditServiceModel.Image != null)
+            {
+                project.Image = projectEditServiceModel.Image;
+            }
+
+            context.Projects.Update(project);
+
+            await context.SaveChangesAsync();
+
+            return true;
         }
     }
 }
