@@ -9498,11 +9498,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\rotaMe\\Web\\RotaMe.Web\\RotaMe.Web.csproj",
+      "projectUniqueName": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web\\RotaMe.Web.csproj",
       "projectName": "RotaMe.Web",
-      "projectPath": "D:\\Projects\\rotaMe\\Web\\RotaMe.Web\\RotaMe.Web.csproj",
+      "projectPath": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web\\RotaMe.Web.csproj",
       "packagesPath": "C:\\Users\\ivand\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\rotaMe\\Web\\RotaMe.Web\\obj\\",
+      "outputPath": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -9522,20 +9522,20 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Projects\\rotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj": {
-              "projectPath": "D:\\Projects\\rotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj"
+            "D:\\Projects\\RotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj": {
+              "projectPath": "D:\\Projects\\RotaMe\\Data\\RotaMe.Data\\RotaMe.Data.csproj"
             },
-            "D:\\Projects\\rotaMe\\Services\\RotaMe.Services\\RotaMe.Services.csproj": {
-              "projectPath": "D:\\Projects\\rotaMe\\Services\\RotaMe.Services\\RotaMe.Services.csproj"
+            "D:\\Projects\\RotaMe\\Services\\RotaMe.Services\\RotaMe.Services.csproj": {
+              "projectPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Services\\RotaMe.Services.csproj"
             },
-            "D:\\Projects\\rotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj": {
-              "projectPath": "D:\\Projects\\rotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj"
+            "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj": {
+              "projectPath": "D:\\Projects\\RotaMe\\Services\\RotaMe.Sevices.Mapping\\RotaMe.Sevices.Mapping.csproj"
             },
-            "D:\\Projects\\rotaMe\\Web\\RotaMe.Web.InputModels\\RotaMe.Web.InputModels.csproj": {
-              "projectPath": "D:\\Projects\\rotaMe\\Web\\RotaMe.Web.InputModels\\RotaMe.Web.InputModels.csproj"
+            "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.InputModels\\RotaMe.Web.InputModels.csproj": {
+              "projectPath": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.InputModels\\RotaMe.Web.InputModels.csproj"
             },
-            "D:\\Projects\\rotaMe\\Web\\RotaMe.Web.ViewModels\\RotaMe.Web.ViewModels.csproj": {
-              "projectPath": "D:\\Projects\\rotaMe\\Web\\RotaMe.Web.ViewModels\\RotaMe.Web.ViewModels.csproj"
+            "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.ViewModels\\RotaMe.Web.ViewModels.csproj": {
+              "projectPath": "D:\\Projects\\RotaMe\\Web\\RotaMe.Web.ViewModels\\RotaMe.Web.ViewModels.csproj"
             }
           }
         }

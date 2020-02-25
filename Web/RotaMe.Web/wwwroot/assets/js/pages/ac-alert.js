@@ -150,6 +150,42 @@ $(document).ready(function() {
                 }
             });
     });
+    // [ sweet-multiple-delete-event ]
+    $('.sweet-multiple-delete-event').on('click', function (event) {
+        event.preventDefault();
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this event!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        type: "POST",
+                        url: this.href,
+                        success: function () {
+                            swal("Poof! The event has been deleted!", {
+                                icon: "success",
+                            }).then(() => {
+                                location.reload();
+                            });
+                        },
+                        error: function () {
+                            swal("The event hasn't been deleted!", {
+                                icon: "error",
+                            });
+                        },
+                    })
+                } else {
+                    swal("The event hasn't been deleted!", {
+                        icon: "error",
+                    });
+
+                }
+            });
+    });
     // [ sweet-prompt ]
     $('.sweet-prompt').on('click', function() {
         swal("Write something here:", {

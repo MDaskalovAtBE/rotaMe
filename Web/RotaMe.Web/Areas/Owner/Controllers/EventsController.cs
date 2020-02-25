@@ -84,5 +84,19 @@ namespace RotaMe.Web.Areas.Owner.Controllers
 
             return this.Redirect("/owner/projects/list");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+
+            var isEventDeleted = await eventsService.Delete(id);
+
+            if (isEventDeleted)
+            {
+                return this.StatusCode(200);
+            }
+
+            return this.StatusCode(400);
+        }
     }
 }

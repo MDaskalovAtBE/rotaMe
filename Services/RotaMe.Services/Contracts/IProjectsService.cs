@@ -15,6 +15,8 @@ namespace RotaMe.Services.Contracts
 
         ProjectDetailsServiceModel GetOwnerProjectDetails(string ownerId, int projectId);
 
+        Task<bool> Edit(ProjectEditServiceModel projectEditServiceModel);
+
         IQueryable<ProjectsListToAddUserServiceModel> GetAllOwnerProjectsToAddUser(string ownerId);
 
         IQueryable<ProjectsListToCreateEventServiceModel> GetAllOwnerProjectsToCreateEvent(string ownerId);
