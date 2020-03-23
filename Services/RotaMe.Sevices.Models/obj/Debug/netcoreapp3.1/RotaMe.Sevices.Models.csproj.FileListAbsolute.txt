@@ -11,3 +11,4 @@ D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\obj\Debug\netcoreapp3.1\RotaMe
 D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Models.csproj.CopyComplete
 D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Models.dll
 D:\Projects\RotaMe\Services\RotaMe.Sevices.Models\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Models.pdb
+D:\Projects\rotaMe\Services\RotaMe.Sevices.Models\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Models.csproj.CoreCompileInputs.cache

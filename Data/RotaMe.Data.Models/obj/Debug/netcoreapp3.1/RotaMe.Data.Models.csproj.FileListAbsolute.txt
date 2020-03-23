@@ -6,3 +6,4 @@ D:\Projects\RotaMe\Data\RotaMe.Data.Models\obj\Debug\netcoreapp3.1\RotaMe.Data.M
 D:\Projects\RotaMe\Data\RotaMe.Data.Models\obj\Debug\netcoreapp3.1\RotaMe.Data.Models.AssemblyInfo.cs
 D:\Projects\RotaMe\Data\RotaMe.Data.Models\obj\Debug\netcoreapp3.1\RotaMe.Data.Models.dll
 D:\Projects\RotaMe\Data\RotaMe.Data.Models\obj\Debug\netcoreapp3.1\RotaMe.Data.Models.pdb
+D:\Projects\rotaMe\Data\RotaMe.Data.Models\obj\Debug\netcoreapp3.1\RotaMe.Data.Models.csproj.CoreCompileInputs.cache

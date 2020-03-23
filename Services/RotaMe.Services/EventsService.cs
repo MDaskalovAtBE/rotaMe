@@ -2,6 +2,7 @@
 using RotaMe.Data;
 using RotaMe.Data.Models;
 using RotaMe.Services.Contracts;
+using RotaMe.Services.Mapping;
 using RotaMe.Sevices.Models.Owner.Events;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,41 @@ namespace RotaMe.Services
             }
 
             context.Events.Remove(eventFromDb);
+            await context.SaveChangesAsync();
+
+            return true;
+        }
+
+        public EventDetailsServiceModel GetEventDetails(int eventId)
+        {
+            return context.Events
+                .Where(e => e.Id == eventId)
+                .Include(e => e.EventNeeds)
+                .Include(e => e.Availabilities)
+                .Include(e => e.Users).ThenInclude(u => u.User)
+                .To<EventDetailsServiceModel>()
+                .FirstOrDefault(e => e.Id == eventId);
+        }
+        public async Task<bool> Edit(EventEditServiceModel eventEditServiceModel)
+        {
+            var @event = await context.Events.FirstOrDefaultAsync(p => p.Id == eventEditServiceModel.Id);
+
+            if (@event == null)
+            {
+                return false;
+            }
+
+            @event.Name = eventEditServiceModel.Name;
+            @event.Slug = eventEditServiceModel.Slug;
+            @event.Description = eventEditServiceModel.Description;
+
+            if (eventEditServiceModel.Image != null)
+            {
+                @event.Image = eventEditServiceModel.Image;
+            }
+
+            context.Events.Update(@event);
+
             await context.SaveChangesAsync();
 
             return true;
