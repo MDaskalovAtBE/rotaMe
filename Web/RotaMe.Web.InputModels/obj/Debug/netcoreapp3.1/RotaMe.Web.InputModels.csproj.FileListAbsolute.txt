@@ -6,3 +6,4 @@ D:\Projects\RotaMe\Web\RotaMe.Web.InputModels\obj\Debug\netcoreapp3.1\RotaMe.Web
 D:\Projects\RotaMe\Web\RotaMe.Web.InputModels\obj\Debug\netcoreapp3.1\RotaMe.Web.InputModels.AssemblyInfo.cs
 D:\Projects\RotaMe\Web\RotaMe.Web.InputModels\obj\Debug\netcoreapp3.1\RotaMe.Web.InputModels.dll
 D:\Projects\RotaMe\Web\RotaMe.Web.InputModels\obj\Debug\netcoreapp3.1\RotaMe.Web.InputModels.pdb
+D:\Projects\rotaMe\Web\RotaMe.Web.InputModels\obj\Debug\netcoreapp3.1\RotaMe.Web.InputModels.csproj.CoreCompileInputs.cache

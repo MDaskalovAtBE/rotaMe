@@ -84,7 +84,7 @@ namespace RotaMe.Web.Areas.Owner.Controllers
 
             var counter = 1;
 
-            var projectslistViewModel = projectsFromService.Select(p => new ProjectListViewModel
+            var projectslistViewModel = projectsFromService.Select(p => new ProjectsListViewModel
             {
                 Id = p.Id,
                 Title = p.Title,
@@ -92,6 +92,12 @@ namespace RotaMe.Web.Areas.Owner.Controllers
                 Image = p.Image,
                 Slug = p.Slug,
                 UsersCount = p.UsersCount,
+                Users = p.Users.Select(u => new ProjectsUsersListViewModel() 
+                { 
+                    Id = u.Id,
+                    Avatar = u.Avatar,
+                    FullName = u.FullName
+                }).ToList(),
                 EvenOdd = counter++ % 2 == 0 ? "even" : "odd" 
             });
 

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using RotaMe.Data.Models;
 using RotaMe.Services.Mapping;
+using RotaMe.Sevices.Models.Owner.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace RotaMe.Sevices.Models.Owner.Projects
         public string Image { get; set; }
 
         public int UsersCount { get; set; }
+
+        public IList<ProjectsUsersListServiceModel> Users { get; set; }
 
 
         public void CreateMappings(IProfileExpression configuration)

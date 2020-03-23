@@ -11,3 +11,5 @@ D:\Projects\RotaMe\Data\RotaMe.Data\obj\Debug\netcoreapp3.1\RotaMe.Data.csprojAs
 D:\Projects\RotaMe\Data\RotaMe.Data\obj\Debug\netcoreapp3.1\RotaMe.Data.csproj.CopyComplete
 D:\Projects\rotaMe\Data\RotaMe.Data\bin\Debug\netcoreapp3.1\RotaMe.Data.runtimeconfig.json
 D:\Projects\rotaMe\Data\RotaMe.Data\bin\Debug\netcoreapp3.1\RotaMe.Data.runtimeconfig.dev.json
+D:\Projects\rotaMe\Data\RotaMe.Data\obj\Debug\netcoreapp3.1\RotaMe.Data.csproj.CoreCompileInputs.cache
+D:\Projects\rotaMe\Data\RotaMe.Data\obj\Debug\netcoreapp3.1\RotaMe.Data.genruntimeconfig.cache

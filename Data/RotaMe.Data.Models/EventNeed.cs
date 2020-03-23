@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace RotaMe.Data.Models
@@ -9,6 +10,8 @@ namespace RotaMe.Data.Models
         public int EventId { get; set; }
 
         public Event Event { get; set; }
+
+        public DateTime Date { get; set; }
 
 
         [Required]

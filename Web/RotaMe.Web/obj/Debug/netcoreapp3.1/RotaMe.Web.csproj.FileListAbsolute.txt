@@ -60,8 +60,6 @@ D:\Projects\RotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\RotaMe.Web.Views.pdb
 D:\Projects\RotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\RotaMe.Web.csproj.CopyComplete
 D:\Projects\RotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\RotaMe.Web.dll
 D:\Projects\RotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\RotaMe.Web.pdb
-D:\Projects\RotaMe\Web\RotaMe.Web\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
-D:\Projects\RotaMe\Web\RotaMe.Web\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
 D:\Projects\RotaMe\Web\RotaMe.Web\bin\Debug\netcoreapp3.1\RotaMe.Data.dll
 D:\Projects\RotaMe\Web\RotaMe.Web\bin\Debug\netcoreapp3.1\RotaMe.Data.Models.dll
 D:\Projects\RotaMe\Web\RotaMe.Web\bin\Debug\netcoreapp3.1\RotaMe.Data.pdb
@@ -197,3 +195,6 @@ D:\Projects\RotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\View
 D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\Views\Projects\RemoveUser.cshtml.g.cs
 D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\Views\Events\Create.cshtml.g.cs
 D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\Views\Projects\Details.cshtml.g.cs
+D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\RotaMe.Web.csproj.CoreCompileInputs.cache
+D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\RotaMe.Web.genruntimeconfig.cache
+D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\Views\Events\Details.cshtml.g.cs

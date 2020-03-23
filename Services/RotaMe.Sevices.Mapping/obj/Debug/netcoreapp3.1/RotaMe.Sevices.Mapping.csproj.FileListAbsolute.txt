@@ -6,3 +6,4 @@ D:\Projects\RotaMe\Services\RotaMe.Sevices.Mapping\bin\Debug\netcoreapp3.1\RotaM
 D:\Projects\RotaMe\Services\RotaMe.Sevices.Mapping\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.csprojAssemblyReference.cache
 D:\Projects\RotaMe\Services\RotaMe.Sevices.Mapping\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.dll
 D:\Projects\RotaMe\Services\RotaMe.Sevices.Mapping\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.pdb
+D:\Projects\rotaMe\Services\RotaMe.Sevices.Mapping\obj\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.csproj.CoreCompileInputs.cache

@@ -15,3 +15,4 @@ D:\Projects\RotaMe\Services\RotaMe.Services\bin\Debug\netcoreapp3.1\RotaMe.Sevic
 D:\Projects\RotaMe\Services\RotaMe.Services\bin\Debug\netcoreapp3.1\RotaMe.Data.Models.pdb
 D:\Projects\RotaMe\Services\RotaMe.Services\bin\Debug\netcoreapp3.1\RotaMe.Sevices.Mapping.pdb
 D:\Projects\RotaMe\Services\RotaMe.Services\obj\Debug\netcoreapp3.1\RotaMe.Services.csproj.CopyComplete
+D:\Projects\rotaMe\Services\RotaMe.Services\obj\Debug\netcoreapp3.1\RotaMe.Services.csproj.CoreCompileInputs.cache

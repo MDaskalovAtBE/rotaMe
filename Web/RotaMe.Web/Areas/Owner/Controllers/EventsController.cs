@@ -7,7 +7,9 @@ using RotaMe.Services.Contracts;
 using RotaMe.Services.Mapping;
 using RotaMe.Sevices.Models.Owner.Events;
 using RotaMe.Web.InputModels.Owner.Events;
+using RotaMe.Web.ViewModels.Owner.Events;
 using RotaMe.Web.ViewModels.Owner.Projects;
+using RotaMe.Web.ViewModels.Owner.Users;
 
 namespace RotaMe.Web.Areas.Owner.Controllers
 {
@@ -97,6 +99,78 @@ namespace RotaMe.Web.Areas.Owner.Controllers
             }
 
             return this.StatusCode(400);
+        }
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var eventFromDb = eventsService.GetEventDetails(id);
+
+            var eventViewModel = new EventDetailsViewModel()
+            {
+                Id = eventFromDb.Id,
+                Description = eventFromDb.Description,
+                Image = eventFromDb.Image,
+                Name = eventFromDb.Name,
+                ProjectId = eventFromDb.ProjectId,
+                EventNeeds = eventFromDb.EventNeeds.Select(en => new EventEventNeedsListViewModel()
+                {
+                    Id = en.Id,
+                    EventId = en.EventId,
+                    Date = en.Date,
+                    MaximumUsers = en.MaximumUsers,
+                    MinimalUsers = en.MinimalUsers,
+                }).ToList(),
+                Availabilities = eventFromDb.Availabilities.Select(a => new EventAvailabilitiesListViewModel()
+                {
+                    Id = a.Id,
+                    UserId = a.UserId,
+                    EventId = a.EventId,
+                    StartDate = a.StartDate,
+                    EndDate = a.EndDate,
+                    Assigned = a.Assigned
+                }).ToList(),
+                Users = eventFromDb.Users.Select(u => new EventUsersListViewModel()
+                {
+                    Id = u.Id,
+                    Avatar = u.Avatar,
+                    FullName = u.FullName,
+                    Username = u.Username,
+                    LastLoggedIn = u.LastLoggedIn,
+                }).ToList(),
+            };
+
+
+            this.ViewData["eventDetails"] = eventViewModel;
+
+            return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Details(int id, EventEditInputModel eventEditInputModel)
+        {
+            string pictureUrl = null;
+
+            if (eventEditInputModel.Image != null)
+            {
+                pictureUrl = await this.cloudinaryService.UploadPictureAsync(
+                    eventEditInputModel.Image,
+                    eventEditInputModel.Name,
+                    imageFolder);
+            }
+
+            var eventEditServiceModel = new EventEditServiceModel()
+            {
+                Id = id,
+                Name = eventEditInputModel.Name,
+                Slug = eventEditInputModel.Name.ToLower().Replace(" ", string.Empty),
+                Description = eventEditInputModel.Description,
+                Image = pictureUrl
+            };
+
+            var result = await eventsService.Edit(eventEditServiceModel);
+
+            return this.RedirectToAction("Details", new { id = id });
         }
     }
 }

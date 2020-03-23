@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RotaMe.Web.ViewModels.Owner.Projects.ProjectListViewModel>
+﻿@model IEnumerable<RotaMe.Web.ViewModels.Owner.Projects.ProjectsListViewModel>
 
 @{
     ViewData["Title"] = "List";
@@ -32,38 +32,46 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Project</th>
-                                                <th>Description</th>
-                                                <th>Users in project</th>
+                                                <th>PROJECT</th>
+                                                <th>DESCRIPTIONS</th>
+                                                <th>MEMBERS</th>
+                                                <th>USERS IN PROJECT</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach (var project in Model)
                                             {
                                                 projectsCount++;
-                                                <tr class="has-row-options @project.EvenOdd" role="row">
-                                                    <td>@projectsCount</td>
-                                                    <td>
-                                                        <div class="d-inline-block align-middle">
-                                                            <img src="@project.Image" alt="project image" class="img-radius align-top m-r-15" style="width:60px;">
-                                                            <div class="d-inline-block">
-                                                                @project.Title
-                                                                <small class="d-block">
-                                                                    <a href="/owner/projects/details/@project.Id">View</a> |
-                                                                    <a href="/owner/projects/addUser/@project.Id">Add User</a> |
-                                                                    <a href="/owner/projects/removeUser/@project.Id">Remove User</a> |
-                                                                    <a href="/owner/events/create/@project.Id">Create Event</a> |
-                                                                    <a href="/owner/projects/delete/@project.Id" class="text-danger sweet-multiple-delete-project">Delete </a>
-                                                                </small>
-                                                            </div>
+                                            <tr class="has-row-options @project.EvenOdd" role="row">
+                                                <td>@projectsCount</td>
+                                                <td>
+                                                    <div class="d-inline-block align-middle">
+                                                        <img src="@project.Image" alt="project image" class="img-radius align-top m-r-15" style="width:60px;">
+                                                        <div class="d-inline-block">
+                                                            @project.Title
+                                                            <small class="d-block">
+                                                                <a href="/owner/projects/details/@project.Id">View</a> |
+                                                                <a href="/owner/projects/addUser/@project.Id">Add User</a> |
+                                                                <a href="/owner/projects/removeUser/@project.Id">Remove User</a> |
+                                                                <a href="/owner/events/create/@project.Id">Create Event</a> |
+                                                                <a href="/owner/projects/delete/@project.Id" class="text-danger sweet-multiple-delete-project">Delete </a>
+                                                            </small>
                                                         </div>
-                                                    </td>
-                                                    <td>
-                                                    @project.Description</td>
-                                                    <td>
-                                                        @project.UsersCount
-                                                    </td>
-                                                </tr>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    @project.Description
+                                                </td>
+                                                <td>
+                                                    @foreach (var user in project.Users)
+                                                    {
+                                                        <img class="img-radius wid-30" src="@user.Avatar" data-toggle="tooltip" data-title="@user.FullName" alt="@user.Avatar">
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @project.UsersCount
+                                                </td>
+                                            </tr>
 
                                             }
                                         </tbody>
