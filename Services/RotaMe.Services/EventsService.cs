@@ -6,6 +6,7 @@ using RotaMe.Services.Mapping;
 using RotaMe.Sevices.Models.Owner.Events;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -87,6 +88,31 @@ namespace RotaMe.Services
             }
 
             context.Events.Update(@event);
+
+            await context.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> CreateNeed(EventNeedCreateServiceModel eventNeedCreateServiceModel)
+        {
+            var eventNeed = await context.EventNeeds.FirstOrDefaultAsync(
+                e => e.MaximumUsers == eventNeedCreateServiceModel.MaximumUsers &&
+                e.MinimalUsers == eventNeedCreateServiceModel.MinimalUsers &&
+                e.EventId == eventNeedCreateServiceModel.EventId);
+
+            if (eventNeed != null)
+            {
+                return false;
+            }
+
+            context.EventNeeds.Add(new EventNeed()
+            {
+                EventId = eventNeedCreateServiceModel.EventId,
+                Date = DateTime.ParseExact(eventNeedCreateServiceModel.Date, "MM/dd/yyyy", CultureInfo.InvariantCulture),
+                MaximumUsers = eventNeedCreateServiceModel.MaximumUsers,
+                MinimalUsers = eventNeedCreateServiceModel.MinimalUsers
+            });
 
             await context.SaveChangesAsync();
 

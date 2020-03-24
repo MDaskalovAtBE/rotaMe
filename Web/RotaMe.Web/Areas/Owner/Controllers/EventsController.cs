@@ -142,6 +142,7 @@ namespace RotaMe.Web.Areas.Owner.Controllers
 
 
             this.ViewData["eventDetails"] = eventViewModel;
+            this.ViewData["eventId"] = eventViewModel.Id;
 
             return this.View();
         }
@@ -171,6 +172,29 @@ namespace RotaMe.Web.Areas.Owner.Controllers
             var result = await eventsService.Edit(eventEditServiceModel);
 
             return this.RedirectToAction("Details", new { id = id });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateNeed(EventNeedCreateInputModel eventNeedCreateInputModel)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View();
+            }
+
+            var eventNeed = new EventNeedCreateServiceModel()
+            {
+                EventId = eventNeedCreateInputModel.EventId,
+                Date = eventNeedCreateInputModel.Date,
+                MaximumUsers = eventNeedCreateInputModel.MaximumUsers,
+                MinimalUsers = eventNeedCreateInputModel.MinimalUsers
+            };
+
+
+            var result = await this.eventsService.CreateNeed(eventNeed);
+
+
+            return this.Redirect($"/owner/events/details/{eventNeed.EventId}");
         }
     }
 }

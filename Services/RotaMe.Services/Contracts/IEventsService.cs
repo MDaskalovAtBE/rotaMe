@@ -9,6 +9,7 @@ namespace RotaMe.Services.Contracts
     public interface IEventsService
     {
         Task<bool> Create(EventCreateServiceModel eventCreateServiceModel);
+        Task<bool> CreateNeed(EventNeedCreateServiceModel eventNeedCreateServiceModel);
         EventDetailsServiceModel GetEventDetails(int eventId);
         Task<bool> Edit(EventEditServiceModel eventEditServiceModel);
 

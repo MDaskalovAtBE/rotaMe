@@ -198,3 +198,4 @@ D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\View
 D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\RotaMe.Web.csproj.CoreCompileInputs.cache
 D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\RotaMe.Web.genruntimeconfig.cache
 D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\Views\Events\Details.cshtml.g.cs
+D:\Projects\rotaMe\Web\RotaMe.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Owner\Views\Shared\_CreateEventNeedPartial.cshtml.g.cs

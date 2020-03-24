@@ -18,7 +18,7 @@ $(document).ready(function() {
 	  });
 	});
 	$(function() {
-		$('input[name="Input.BirthDay"], input[name="BirthDay"]').daterangepicker({
+		$('input[name="Input.BirthDay"], input[name="BirthDay"], input[name="Date"]').daterangepicker({
 		singleDatePicker: true,
 		showDropdowns: true,
 		minYear: 1901,
