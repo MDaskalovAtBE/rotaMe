@@ -7,6 +7,7 @@
     ViewData["Title"] = "Event Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var eventDetails = (EventDetailsViewModel)this.ViewData["eventDetails"];
+    var needCounter = 0;
 }
 
 @section Styles{
@@ -54,7 +55,10 @@
                         <div class="col-md-8 mt-md-4">
                             <ul class="nav nav-tabs profile-tabs nav-fill" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link text-reset" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="false"><i class="feather icon-file mr-2"></i>Details</a>
+                                    <a class="nav-link text-reset" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="true"><i class="feather icon-file mr-2"></i>Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-reset" id="new-event-need-tab" data-toggle="tab" href="#eventNeed" role="tab" aria-controls="eventNeed" aria-selected="false"><i class="fas fa-calendar-plus mr-2"></i>Create Event Need</a>
                                 </li>
                             </ul>
                         </div>
@@ -69,7 +73,7 @@
                 <div class="tab-content" id="myTabContent">
                     @*<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-                        </div>*@
+        </div>*@
                     <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
                         <div class="card">
                             <div class="card-body d-flex align-items-center justify-content-between">
@@ -124,6 +128,10 @@
                                 </form>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="eventNeed" role="tabpanel" aria-labelledby="eventNeed-tab">
+                        <partial name="/Areas/Owner/Views/Shared/_CreateEventNeedPartial.cshtml" view-data="ViewData"/>
                     </div>
                 </div>
             </div>
@@ -182,21 +190,32 @@
                     </div>
                     <div class="cust-scroll" style="height:415px;position:relative;">
                         <div class="card-body p-b-0">
-                            @foreach (var eventNeed in eventDetails.EventNeeds)
-                            {
-                                <div class="align-middle m-b-25">
-                                    <div class="d-inline-block">
-                                        <div class="status deactive">
-                                            <h6>Maximum Users</h6>
-                                            <p class="m-b-0">@eventNeed.MinimalUsers</p>
-                                        </div>
-                                        <div class="status deactive">
-                                            <h6>Minimal Users</h6>
-                                            <p class="m-b-0">@eventNeed.MinimalUsers</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Min Users</th>
+                                            <th>Max Users</th>
+                                            <th>Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for (int i = 0; i < eventDetails.EventNeeds.Count(); i++)
+                                        {
+                                            var eventNeed = eventDetails.EventNeeds[i];
+                                            needCounter++;
+
+                                            <tr>
+                                                <td><a href="/owner/events/needDetails"><h6>@needCounter</h6></a></td>
+                                                <td>@eventNeed.MinimalUsers</td>
+                                                <td>@eventNeed.MaximumUsers</td>
+                                                <td>@eventNeed.Date</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -221,19 +240,19 @@
                         <div class="card-body p-b-0">
                             @foreach (var availability in eventDetails.Availabilities)
                             {
-                            <div class="align-middle m-b-25">
-                                <div class="d-inline-block">
-                                    <div class="status deactive">
-                                        <h6>Start Date</h6>
-                                        <span class="status deactive">@availability.StartDate.ToString("MM/dd/yyyy hh:mm")</span>
+                                <div class="align-middle m-b-25">
+                                    <div class="d-inline-block">
+                                        <div class="status deactive">
+                                            <h6>Start Date</h6>
+                                            <span class="status deactive">@availability.StartDate.ToString("MM/dd/yyyy hh:mm")</span>
+                                        </div>
+                                        <div class="status deactive">
+                                            <h6>End Date</h6>
+                                            <span class="status deactive">@availability.EndDate.ToString("MM/dd/yyyy hh:mm")</span>
+                                        </div>
+                                        <span class="status deactive">@availability.Assigned</span>
                                     </div>
-                                    <div class="status deactive">
-                                        <h6>End Date</h6>
-                                        <span class="status deactive">@availability.EndDate.ToString("MM/dd/yyyy hh:mm")</span>
-                                    </div>
-                                    <span class="status deactive">@availability.Assigned</span>
                                 </div>
-                            </div>
                             }
                         </div>
                     </div>
@@ -254,6 +273,9 @@
     <script src="~/assets/js/plugins/sweetalert.min.js"></script>
     <script src="~/assets/js/pages/ac-alert.js"></script>
     <!-- datepicker js -->
+    <script src="~/assets/js/plugins/moment.min.js"></script>
+    <script src="~/assets/js/plugins/daterangepicker.js"></script>
+    <script src="~/assets/js/pages/ac-datepicker.js"></script>
     <script>
         // [ customer-scroll ] start
         var px = new PerfectScrollbar('.cust-scroll', {
