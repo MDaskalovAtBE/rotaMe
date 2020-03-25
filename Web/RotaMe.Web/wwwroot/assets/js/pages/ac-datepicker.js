@@ -8,7 +8,7 @@ $(document).ready(function() {
 	  });
 	});
 	$(function() {
-	  $('input[name="datetimes"]').daterangepicker({
+		$('input[name="datetimes"]').daterangepicker({
 		timePicker: true,
 		startDate: moment().startOf('hour'),
 		endDate: moment().startOf('hour').add(32, 'hour'),
@@ -18,7 +18,7 @@ $(document).ready(function() {
 	  });
 	});
 	$(function() {
-		$('input[name="Input.BirthDay"], input[name="BirthDay"], input[name="Date"]').daterangepicker({
+		$('input[name="Input.BirthDay"], input[name="BirthDay"], input[name="NeedDate"], input[name="Date"]').daterangepicker({
 		singleDatePicker: true,
 		showDropdowns: true,
 		minYear: 1901,

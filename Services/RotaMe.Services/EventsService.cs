@@ -58,6 +58,20 @@ namespace RotaMe.Services
 
             return true;
         }
+        public async Task<bool> NeedDelete(int id)
+        {
+            var eventNeedFromDb = await context.EventNeeds.FirstOrDefaultAsync(e => e.Id == id);
+
+            if (eventNeedFromDb == null)
+            {
+                return false;
+            }
+
+            context.EventNeeds.Remove(eventNeedFromDb);
+            await context.SaveChangesAsync();
+
+            return true;
+        }
 
         public EventDetailsServiceModel GetEventDetails(int eventId)
         {
@@ -88,6 +102,27 @@ namespace RotaMe.Services
             }
 
             context.Events.Update(@event);
+
+            await context.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> NeedEdit(EventNeedEditServiceModel eventNeedEditServiceModel)
+        {
+            var eventNeed = await context.EventNeeds.FirstOrDefaultAsync(p => p.Id == eventNeedEditServiceModel.Id);
+
+            if (eventNeed == null)
+            {
+                return false;
+            }
+
+            eventNeed.Date = DateTime.ParseExact(eventNeedEditServiceModel.Date, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+            eventNeed.MinimalUsers = eventNeedEditServiceModel.MinimalUsers;
+            eventNeed.MaximumUsers = eventNeedEditServiceModel.MaximumUsers;
+
+
+            context.EventNeeds.Update(eventNeed);
 
             await context.SaveChangesAsync();
 
