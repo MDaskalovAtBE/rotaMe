@@ -12,7 +12,9 @@ namespace RotaMe.Services.Contracts
         Task<bool> CreateNeed(EventNeedCreateServiceModel eventNeedCreateServiceModel);
         EventDetailsServiceModel GetEventDetails(int eventId);
         Task<bool> Edit(EventEditServiceModel eventEditServiceModel);
+        Task<bool> NeedEdit(EventNeedEditServiceModel eventNeedEditServiceModel);
 
         Task<bool> Delete(int id);
+        Task<bool> NeedDelete(int id);
     }
 }

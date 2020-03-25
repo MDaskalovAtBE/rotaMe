@@ -101,6 +101,20 @@ namespace RotaMe.Web.Areas.Owner.Controllers
             return this.StatusCode(400);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> NeedDelete(int id)
+        {
+
+            var isEventNeedDeleted = await eventsService.NeedDelete(id);
+
+            if (isEventNeedDeleted)
+            {
+                return this.StatusCode(200);
+            }
+
+            return this.StatusCode(400);
+        }
+
         [HttpGet]
         public IActionResult Details(int id)
         {
@@ -170,6 +184,22 @@ namespace RotaMe.Web.Areas.Owner.Controllers
             };
 
             var result = await eventsService.Edit(eventEditServiceModel);
+
+            return this.RedirectToAction("Details", new { id = id });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> NeedEdit(int id, EventNeedEditInputModel eventNeedEditInputModel)
+        {
+            var eventNeedEditServiceModel = new EventNeedEditServiceModel()
+            {
+                Id = eventNeedEditInputModel.NeedId,
+                Date = eventNeedEditInputModel.NeedDate,
+                MinimalUsers = eventNeedEditInputModel.MinUsers,
+                MaximumUsers = eventNeedEditInputModel.MaxUsers
+            };
+
+            var result = await eventsService.NeedEdit(eventNeedEditServiceModel);
 
             return this.RedirectToAction("Details", new { id = id });
         }

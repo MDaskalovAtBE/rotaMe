@@ -1,5 +1,6 @@
 ﻿@model RotaMe.Web.InputModels.Owner.Events.EventEditInputModel
 @using RotaMe.Web.ViewModels.Owner.Users
+@using RotaMe.Web.InputModels.Owner.Events
 @using RotaMe.Web.ViewModels.Owner.Events
 @using RotaMe.Web.ViewModels.Owner.Projects
 
@@ -15,7 +16,8 @@
     <!-- ekko-lightbox css -->
     <link rel="stylesheet" href="~/assets/css/plugins/ekko-lightbox.css">
     <link rel="stylesheet" href="~/assets/css/plugins/lightbox.min.css">
-    <link rel="stylesheet" href="~/assets/css/plugins/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/plugins/daterangepicker.css"/>
+    <link rel="stylesheet" href="~/assets/css/plugins/dataTables.bootstrap4.min.css">
 }
 
 
@@ -58,7 +60,7 @@
                                     <a class="nav-link text-reset" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="true"><i class="feather icon-file mr-2"></i>Details</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-reset" id="new-event-need-tab" data-toggle="tab" href="#eventNeed" role="tab" aria-controls="eventNeed" aria-selected="false"><i class="fas fa-calendar-plus mr-2"></i>Create Event Need</a>
+                                    <a class="nav-link text-reset" id="new-event-need-tab" data-toggle="tab" href="#eventNeedCreate" role="tab" aria-controls="eventNeedCreate" aria-selected="false"><i class="fas fa-calendar-plus mr-2"></i>Create Event Need</a>
                                 </li>
                             </ul>
                         </div>
@@ -73,7 +75,7 @@
                 <div class="tab-content" id="myTabContent">
                     @*<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-        </div>*@
+                        </div>*@
                     <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
                         <div class="card">
                             <div class="card-body d-flex align-items-center justify-content-between">
@@ -130,8 +132,12 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="eventNeed" role="tabpanel" aria-labelledby="eventNeed-tab">
-                        <partial name="/Areas/Owner/Views/Shared/_CreateEventNeedPartial.cshtml" view-data="ViewData"/>
+                    <div class="tab-pane fade" id="eventNeedCreate" role="tabpanel" aria-labelledby="eventNeedCreate-tab">
+                        <partial name="/Areas/Owner/Views/Shared/_CreateEventNeedPartial.cshtml" view-data="ViewData" />
+                    </div>
+
+                    <div class="tab-pane fade" id="eventNeedEdit" role="tabpanel" aria-labelledby="eventNeedEdit-tab">
+                        <partial name="/Areas/Owner/Views/Shared/_EditEventNeedPartial.cshtml" view-data="ViewData" />
                     </div>
                 </div>
             </div>
@@ -189,32 +195,45 @@
                         </div>
                     </div>
                     <div class="cust-scroll" style="height:415px;position:relative;">
-                        <div class="card-body p-b-0">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Min Users</th>
-                                            <th>Max Users</th>
-                                            <th>Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @for (int i = 0; i < eventDetails.EventNeeds.Count(); i++)
-                                        {
-                                            var eventNeed = eventDetails.EventNeeds[i];
-                                            needCounter++;
-
+                        <div class="card user-profile-list">
+                            <div class="card-body p-b-0">
+                                <div class="dt-responsive table-responsive">
+                                    <table id="need-list-table" class="table nowrap">
+                                        <thead>
                                             <tr>
-                                                <td><a href="/owner/events/needDetails"><h6>@needCounter</h6></a></td>
-                                                <td>@eventNeed.MinimalUsers</td>
-                                                <td>@eventNeed.MaximumUsers</td>
-                                                <td>@eventNeed.Date</td>
+                                                <th>#</th>
+                                                <th>Min Users</th>
+                                                <th>Max Users</th>
+                                                <th>Date</th>
                                             </tr>
-                                        }
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            @for (int i = 0; i < eventDetails.EventNeeds.Count(); i++)
+                                            {
+                                                var eventNeed = eventDetails.EventNeeds[i];
+                                                needCounter++;
+
+                                                <tr>
+                                                    <td>@needCounter</td>
+                                                    <td id='NeedMinUsers_@eventNeed.Id'>
+                                                        @eventNeed.MinimalUsers
+                                                    </td>
+                                                    <td id='NeedMaxUsers_@eventNeed.Id'>
+                                                        @eventNeed.MaximumUsers
+                                                    </td>
+                                                    <td id="NeedDate_@eventNeed.Id">
+                                                        @eventNeed.Date
+                                                        <div class="overlay-edit">
+                                                            <a href="#eventNeedEdit" id="need-@eventNeed.Id" data-toggle="tab" class="edit-event-need-tab btn btn-icon btn-success nav-link text-reset" role="tab" aria-controls="eventNeedEdit" aria-selected="false"><i class="feather icon-edit"></i></a>
+                                                            <a href="/owner/events/NeedDetails/@eventNeed.Id" class="btn btn-icon btn-info"><i class="fas fa-info-circle"></i></a>
+                                                            <a href="/owner/events/NeedDelete/@eventNeed.Id" class="btn btn-icon btn-danger sweet-multiple-delete-need"><i class="feather icon-trash-2"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -267,6 +286,8 @@
 
 
 @section Scripts{
+    <script src="~/assets/js/plugins/jquery.dataTables.min.js"></script>
+    <script src="~/assets/js/plugins/dataTables.bootstrap4.min.js"></script>
     <script src="~/assets/js/plugins/ekko-lightbox.min.js"></script>
     <script src="~/assets/js/plugins/lightbox.min.js"></script>
     <script src="~/assets/js/pages/ac-lightbox.js"></script>
@@ -276,6 +297,7 @@
     <script src="~/assets/js/plugins/moment.min.js"></script>
     <script src="~/assets/js/plugins/daterangepicker.js"></script>
     <script src="~/assets/js/pages/ac-datepicker.js"></script>
+    <script src="~/js/EventNeedValuesSetter.js"></script>
     <script>
         // [ customer-scroll ] start
         var px = new PerfectScrollbar('.cust-scroll', {
@@ -290,5 +312,8 @@
             $('#change-details-info').click();
             $('#Image').click();
         });
+    </script>
+    <script>
+        $('#need-list-table').DataTable();
     </script>
 }
