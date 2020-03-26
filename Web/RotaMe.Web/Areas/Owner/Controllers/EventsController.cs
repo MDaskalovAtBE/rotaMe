@@ -131,7 +131,7 @@ namespace RotaMe.Web.Areas.Owner.Controllers
                 {
                     Id = en.Id,
                     EventId = en.EventId,
-                    Date = en.Date,
+                    Date = en.Date.ToString("dd/MM/yyyy HH:mm"),
                     MaximumUsers = en.MaximumUsers,
                     MinimalUsers = en.MinimalUsers,
                 }).ToList(),
