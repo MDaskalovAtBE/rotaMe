@@ -16,7 +16,8 @@
     <!-- ekko-lightbox css -->
     <link rel="stylesheet" href="~/assets/css/plugins/ekko-lightbox.css">
     <link rel="stylesheet" href="~/assets/css/plugins/lightbox.min.css">
-    <link rel="stylesheet" type="text/css" href="~/assets/css/plugins/daterangepicker.css"/>
+    @*<link rel="stylesheet" type="text/css" href="~/assets/css/plugins/daterangepicker.css" />*@
+    <link rel="stylesheet" type="text/css" href="~/assets/css/plugins/jquery.datetimepicker.css" />
     <link rel="stylesheet" href="~/assets/css/plugins/dataTables.bootstrap4.min.css">
 }
 
@@ -295,8 +296,9 @@
     <script src="~/assets/js/pages/ac-alert.js"></script>
     <!-- datepicker js -->
     <script src="~/assets/js/plugins/moment.min.js"></script>
-    <script src="~/assets/js/plugins/daterangepicker.js"></script>
-    <script src="~/assets/js/pages/ac-datepicker.js"></script>
+    @*<script src="~/assets/js/plugins/daterangepicker.js"></script>
+    <script src="~/assets/js/pages/ac-datepicker.js"></script>*@
+    <script src="~/assets/js/pages/jquery.datetimepicker.full.js"></script>
     <script src="~/js/EventNeedValuesSetter.js"></script>
     <script>
         // [ customer-scroll ] start
@@ -311,6 +313,13 @@
         $('#change-image').on('click', function (event) {
             $('#change-details-info').click();
             $('#Image').click();
+        });
+    </script>
+    <script>
+        $('#event-create-date').datetimepicker({
+            format: 'm/d/yy h:i',
+            inline: true,
+            lang: 'bg'
         });
     </script>
     <script>

@@ -117,7 +117,7 @@ namespace RotaMe.Services
                 return false;
             }
 
-            eventNeed.Date = DateTime.ParseExact(eventNeedEditServiceModel.Date, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+            eventNeed.Date = DateTime.ParseExact(eventNeedEditServiceModel.Date, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
             eventNeed.MinimalUsers = eventNeedEditServiceModel.MinimalUsers;
             eventNeed.MaximumUsers = eventNeedEditServiceModel.MaximumUsers;
 
@@ -144,7 +144,7 @@ namespace RotaMe.Services
             context.EventNeeds.Add(new EventNeed()
             {
                 EventId = eventNeedCreateServiceModel.EventId,
-                Date = DateTime.ParseExact(eventNeedCreateServiceModel.Date, "MM/dd/yyyy", CultureInfo.InvariantCulture),
+                Date = DateTime.ParseExact(eventNeedCreateServiceModel.Date, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture),
                 MaximumUsers = eventNeedCreateServiceModel.MaximumUsers,
                 MinimalUsers = eventNeedCreateServiceModel.MinimalUsers
             });
